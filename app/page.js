@@ -5,5 +5,8 @@
 // 몸 비교
 
 export default function Home() {
+  {
+    console.log(process.env.NEXT_PUBLIC_SECRET, "adsf");
+  }
   return <div></div>;
 }

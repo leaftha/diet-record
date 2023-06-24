@@ -64,6 +64,6 @@ export const authOptions = {
   },
 
   adapter: MongoDBAdapter(connectDB),
-  secret: "",
+  secret: process.env.NEXTAUTH_SECRET,
 };
 export default NextAuth(authOptions);
