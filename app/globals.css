@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: beige;
+  height: 100px;
+}
+
+.navbar-name {
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+  font-size: 20px;
+}
+.navbar-name {
+  font-size: 30px;
+}
+
+.navbar-auth {
+  display: flex;
+  margin-right: 20px;
+  font-size: 20px;
+  align-items: center;
+  justify-content: space-between;
+  width: 20%;
+}
