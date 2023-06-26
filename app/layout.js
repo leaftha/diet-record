@@ -21,7 +21,7 @@ export default async function RootLayout({ children }) {
         <nav className="navbar">
           <div className="navbar-content">
             <div className="navbar-name">Diet</div>
-            <div>인바디</div>
+            <Link href="inbody">인바디</Link>
             <div>눈 바디</div>
             <div>운동 기록</div>
           </div>
