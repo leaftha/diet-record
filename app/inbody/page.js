@@ -1,4 +1,4 @@
-import LineChart from "@/components/LineChart";
+import LineChart from ".";
 
 export default function InBody() {
   return (
