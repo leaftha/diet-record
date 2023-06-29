@@ -23,7 +23,7 @@ ChartJS.register(
   Legend
 );
 
-export default function LineChart() {
+export default function LineChart({ userinbody }) {
   const [chartData, setChartData] = useState({
     datasets: [],
   });
@@ -55,7 +55,7 @@ export default function LineChart() {
       },
     });
   }, []);
-  console.log(2);
+  console.log(userinbody);
   return (
     <div>
       <Line options={chartOption} data={chartData} />;

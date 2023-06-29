@@ -12,13 +12,16 @@ export default async function InBody() {
   let session = await getServerSession(authOptions);
   const client = await connectDB;
   const db = client.db("menber");
-  const result = await db
+  let result = await db
     .collection("inbody")
     .find({ email: session.user.email })
-    .toArray(function (err, result) {
-      if (err) throw err;
-      return result;
-    });
+    .toArray();
+
+  result = result.map((a) => {
+    a._id = a._id.toString();
+    return a;
+  });
+
   const date = new Date();
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
@@ -54,7 +57,7 @@ export default async function InBody() {
         <button type="submit">입력</button>
       </form>
       <div>
-        <LineChart />
+        <LineChart userinbody={result} />
       </div>
     </div>
   );
