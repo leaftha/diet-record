@@ -1,7 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
-
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,7 +12,6 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { useEffect, useState } from "react";
 
 ChartJS.register(
   CategoryScale,
@@ -23,24 +22,26 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
-const data = {
-  labels: labels,
-  datasets: [
-    {
-      label: "Dataset 1",
-      data: [123, 425, 251],
-      borderColor: "rgb(255, 99, 132)",
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
-    },
-  ],
-};
 
 export default function LineChart() {
+  const [chartData, setChartData] = useState({
+    datasets: [],
+  });
   const [chartOption, setChartOption] = useState({});
-  const [chartData, setChartData] = useState({});
 
   useEffect(() => {
+    setChartData({
+      labels: [1, 2, 3],
+      datasets: [
+        {
+          label: "Dataset 1",
+          data: [25, 23, 55],
+          borderColor: "rgb(255, 99, 132)",
+          backgroundColor: "rgba(255, 99, 132, 0.5)",
+        },
+      ],
+    });
+
     setChartOption({
       responsive: true,
       plugins: {
@@ -54,9 +55,10 @@ export default function LineChart() {
       },
     });
   }, []);
+  console.log(2);
   return (
     <div>
-      <Line data={data} options={chartOption} />
+      <Line options={chartOption} data={chartData} />;
     </div>
   );
 }
