@@ -12,15 +12,39 @@ export default async function InBody() {
   let session = await getServerSession(authOptions);
   const client = await connectDB;
   const db = client.db("menber");
+  // let result = await db
+  //   .collection("inbody")
+  //   .find({ email: session.user.email })
+  //   .toArray();
+
+  // result = result.map((a) => {
+  //   a._id = a._id.toString();
+  //   return a;
+  // });
+
   let result = await db
     .collection("inbody")
     .find({ email: session.user.email })
+    .sort({ _id: -1 })
+    .limit(12)
     .toArray();
 
   result = result.map((a) => {
     a._id = a._id.toString();
     return a;
   });
+  // console.log(result);
+
+  let datelabels = result.map((data) => {
+    return `${data.year}-${data.month}`;
+  });
+
+  // console.log(datelabels);
+
+  let weightData = result.map((data) => {
+    return data.weight;
+  });
+  // console.log(weightData.reverse());
 
   const date = new Date();
   const year = date.getFullYear();
@@ -57,7 +81,7 @@ export default async function InBody() {
         <button type="submit">입력</button>
       </form>
       <div>
-        <LineChart userinbody={result} />
+        <LineChart label={datelabels} weight={weightData.reverse()} />
       </div>
     </div>
   );

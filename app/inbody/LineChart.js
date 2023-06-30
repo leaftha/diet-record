@@ -23,7 +23,7 @@ ChartJS.register(
   Legend
 );
 
-export default function LineChart({ userinbody }) {
+export default function LineChart({ label, weight }) {
   const [chartData, setChartData] = useState({
     datasets: [],
   });
@@ -31,11 +31,11 @@ export default function LineChart({ userinbody }) {
 
   useEffect(() => {
     setChartData({
-      labels: [1, 2, 3],
+      labels: label,
       datasets: [
         {
-          label: "Dataset 1",
-          data: [25, 23, 55],
+          label: "몸무게",
+          data: weight,
           borderColor: "rgb(255, 99, 132)",
           backgroundColor: "rgba(255, 99, 132, 0.5)",
         },
@@ -55,7 +55,7 @@ export default function LineChart({ userinbody }) {
       },
     });
   }, []);
-  console.log(userinbody);
+
   return (
     <div>
       <Line options={chartOption} data={chartData} />;
