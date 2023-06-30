@@ -23,7 +23,7 @@ ChartJS.register(
   Legend
 );
 
-export default function LineChart({ label, weight }) {
+export default function LineChart({ label, weight, fat, muscle, fatper }) {
   const [chartData, setChartData] = useState({
     datasets: [],
   });
@@ -38,6 +38,24 @@ export default function LineChart({ label, weight }) {
           data: weight,
           borderColor: "rgb(255, 99, 132)",
           backgroundColor: "rgba(255, 99, 132, 0.5)",
+        },
+        {
+          label: "체지방",
+          data: fat,
+          borderColor: "rgb(53, 162, 235)",
+          backgroundColor: "rgba(53, 162, 235, 0.5)",
+        },
+        {
+          label: "근육량",
+          data: muscle,
+          borderColor: "rgb(255, 206, 86)",
+          backgroundColor: "rgba(255, 206, 86, 0.5)",
+        },
+        {
+          label: "체지방률",
+          data: fatper,
+          borderColor: "rgb(75, 192, 192)",
+          backgroundColor: "rgba(75, 192, 192, 0.5)",
         },
       ],
     });

@@ -46,6 +46,18 @@ export default async function InBody() {
   });
   // console.log(weightData.reverse());
 
+  let fatData = result.map((data) => {
+    return data.fat;
+  });
+
+  let muscleData = result.map((data) => {
+    return data.mucle;
+  });
+
+  let fatperData = result.map((data) => {
+    return data.fatper;
+  });
+
   const date = new Date();
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
@@ -81,7 +93,13 @@ export default async function InBody() {
         <button type="submit">입력</button>
       </form>
       <div>
-        <LineChart label={datelabels} weight={weightData.reverse()} />
+        <LineChart
+          label={datelabels.reverse()}
+          weight={weightData.reverse()}
+          fat={fatData.reverse()}
+          muscle={muscleData.reverse()}
+          fatper={fatperData.reverse()}
+        />
       </div>
     </div>
   );
