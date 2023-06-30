@@ -64,33 +64,41 @@ export default async function InBody() {
   return (
     <div>
       <form method="POST" action="/api/post/inbody">
-        <label>체중</label>
-        <input name="weight" type="number" step="0.01" />
-        <label>체지방</label>
-        <input name="fat" type="number" step="0.01" />
-        <label>근육량</label>
-        <input name="mucle" type="number" step="0.01" />
-        <label>체지방률</label>
-        <input name="fatper" type="number" step="0.01" />
-        <input
-          style={{ display: "none" }}
-          name="email"
-          type="text"
-          defaultValue={session.user.email}
-        />
-        <input
-          style={{ display: "none" }}
-          name="year"
-          type="text"
-          defaultValue={year}
-        />
-        <input
-          style={{ display: "none" }}
-          name="month"
-          type="text"
-          defaultValue={month}
-        />
-        <button type="submit">입력</button>
+        {month == result[0].month && year == result[0].year ? (
+          <div>
+            <h1>이번달 입력 완료</h1>
+          </div>
+        ) : (
+          <div>
+            <label>체중</label>
+            <input name="weight" type="number" step="0.01" />
+            <label>체지방</label>
+            <input name="fat" type="number" step="0.01" />
+            <label>근육량</label>
+            <input name="mucle" type="number" step="0.01" />
+            <label>체지방률</label>
+            <input name="fatper" type="number" step="0.01" />
+            <input
+              style={{ display: "none" }}
+              name="email"
+              type="text"
+              defaultValue={session.user.email}
+            />
+            <input
+              style={{ display: "none" }}
+              name="year"
+              type="text"
+              defaultValue={year}
+            />
+            <input
+              style={{ display: "none" }}
+              name="month"
+              type="text"
+              defaultValue={month}
+            />
+            <button type="submit">입력</button>
+          </div>
+        )}
       </form>
       <div>
         <LineChart
