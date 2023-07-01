@@ -68,7 +68,7 @@ export default function LineChart({ label, weight, fat, muscle, fatper }) {
         },
         title: {
           display: true,
-          text: "Chart.js Line Chart",
+          text: "인바디 기록",
         },
       },
     });

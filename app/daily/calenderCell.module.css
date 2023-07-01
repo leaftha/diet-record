@@ -1,0 +1,19 @@
+.body {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cell {
+  display: flex;
+  height: 100px;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border: 1px solid black;
+}
