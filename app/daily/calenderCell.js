@@ -3,29 +3,45 @@ import { startOfMonth, endOfMonth, startOfWeek, endOfWeek } from "date-fns";
 import { format } from "date-fns";
 import { addDays } from "date-fns";
 import classes from "./calenderCell.module.css";
+import { useState } from "react";
+import Modal from "./Modal";
 
 export default function CalenderCell({ currentMonth }) {
+  const [modal, setModal] = useState(false);
   const monthStart = startOfMonth(currentMonth);
   const monthEnd = endOfMonth(monthStart);
   const startDate = startOfWeek(monthStart);
   const endDate = endOfWeek(monthEnd);
+  const currentDay = format(currentMonth, "d");
+  const currMonth = format(currentMonth, "M");
 
+  const showModal = () => {
+    setModal(true);
+  };
   const rows = [];
   let days = [];
   let day = startDate;
   let formattedDate = "";
+  let formattedMonth = "";
 
   while (day <= endDate) {
     for (let i = 0; i < 7; i++) {
       formattedDate = format(day, "d");
-      const cloneDay = day;
+      formattedMonth = format(day, "M");
       days.push(
         <div className={classes.cell} key={day}>
           <span
             className={
-              format(currentMonth, "M") !== format(day, "M")
-                ? "text not-valid"
+              formattedDate === currentDay && formattedMonth === currMonth
+                ? classes.currentDay
+                : formattedMonth != currMonth
+                ? classes.prevMonth
                 : ""
+            }
+            onClick={
+              formattedDate === currentDay && formattedMonth === currMonth
+                ? showModal
+                : null
             }
           >
             {formattedDate}
@@ -41,5 +57,10 @@ export default function CalenderCell({ currentMonth }) {
     );
     days = [];
   }
-  return <div className={classes.body}>{rows}</div>;
+  return (
+    <div className={classes.body}>
+      {rows}
+      {modal && <Modal setModal={setModal} />}
+    </div>
+  );
 }
