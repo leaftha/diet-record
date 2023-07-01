@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export default function Modal({ setModal }) {
   const closeModel = () => {
     setModal(false);
@@ -9,6 +10,12 @@ export default function Modal({ setModal }) {
         <input name="" type="text" placeholder="운동내용" />
         <button type="submit">운동 입력</button>
       </form>
+=======
+export default function Modal() {
+  return (
+    <div>
+      <h1>daf</h1>
+>>>>>>> 1cd9f28e26e58410f1fc90386f8528497a20d88e
     </div>
   );
 }
