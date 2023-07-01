@@ -18,10 +18,6 @@ export default function CalenderCell({ currentMonth }) {
   const showModal = () => {
     setModal(true);
   };
-<<<<<<< HEAD
-=======
-  console.log(modal);
->>>>>>> 1cd9f28e26e58410f1fc90386f8528497a20d88e
   const rows = [];
   let days = [];
   let day = startDate;
@@ -64,11 +60,7 @@ export default function CalenderCell({ currentMonth }) {
   return (
     <div className={classes.body}>
       {rows}
-<<<<<<< HEAD
       {modal && <Modal setModal={setModal} />}
-=======
-      {modal && <Modal />}
->>>>>>> 1cd9f28e26e58410f1fc90386f8528497a20d88e
     </div>
   );
 }
