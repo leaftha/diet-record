@@ -18,6 +18,13 @@ export default function CalenderCell({ currentMonth, checkDate }) {
   const currentDay = format(currentMonth, "d");
   const currMonth = format(currentMonth, "M");
 
+  let cheacklistmonth = checkDate.map((date) => {
+    return date.month;
+  });
+
+  let cheacklistdate = checkDate.map((date) => {
+    return date.date;
+  });
   const showModal = () => {
     setModal(true);
   };
@@ -36,23 +43,28 @@ export default function CalenderCell({ currentMonth, checkDate }) {
       formattedDate = format(day, "d");
       formattedMonth = format(day, "M");
       days.push(
-        <div className={classes.cell} key={day}>
-          <span
-            className={
-              formattedDate === currentDay && formattedMonth === currMonth
-                ? classes.currentDay
-                : formattedMonth != currMonth
-                ? classes.prevMonth
-                : ""
-            }
-            onClick={
-              formattedDate === currentDay && formattedMonth === currMonth
-                ? showModal
-                : null
-            }
-          >
-            {formattedDate}
-          </span>
+        <div
+          className={`${classes.cell} ${
+            cheacklistmonth.includes(formattedMonth) === false
+              ? ""
+              : cheacklistdate.includes(formattedDate)
+              ? classes.check
+              : ""
+          } ${
+            formattedDate === currentDay && formattedMonth === currMonth
+              ? classes.currentDay
+              : formattedMonth != currMonth
+              ? classes.prevMonth
+              : ""
+          }`}
+          onClick={
+            formattedDate === currentDay && formattedMonth === currMonth
+              ? showModal
+              : null
+          }
+          key={day}
+        >
+          <span>{formattedDate}</span>
         </div>
       );
       day = addDays(day, 1);
