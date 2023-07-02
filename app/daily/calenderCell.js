@@ -45,9 +45,8 @@ export default function CalenderCell({ currentMonth, checkDate }) {
       days.push(
         <div
           className={`${classes.cell} ${
-            cheacklistmonth.includes(formattedMonth) === false
-              ? ""
-              : cheacklistdate.includes(formattedDate)
+            cheacklistmonth.includes(formattedMonth) &&
+            cheacklistdate.includes(formattedDate)
               ? classes.check
               : ""
           } ${
@@ -58,7 +57,9 @@ export default function CalenderCell({ currentMonth, checkDate }) {
               : ""
           }`}
           onClick={
-            formattedDate === currentDay && formattedMonth === currMonth
+            formattedDate === currentDay &&
+            formattedMonth === currMonth &&
+            cheacklistdate.includes(currentDay) === false
               ? showModal
               : null
           }

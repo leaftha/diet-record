@@ -27,5 +27,8 @@
 }
 
 .check {
-  background-color: blue;
+  background-image: url(/images/stamp.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100px;
 }
