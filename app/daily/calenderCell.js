@@ -1,12 +1,15 @@
 "use client";
+
 import { startOfMonth, endOfMonth, startOfWeek, endOfWeek } from "date-fns";
 import { format } from "date-fns";
 import { addDays } from "date-fns";
 import classes from "./calenderCell.module.css";
 import { useState } from "react";
+import { SessionProvider } from "next-auth/react";
+
 import Modal from "./Modal";
 
-export default function CalenderCell({ currentMonth }) {
+export default function CalenderCell({ currentMonth, checkDate }) {
   const [modal, setModal] = useState(false);
   const monthStart = startOfMonth(currentMonth);
   const monthEnd = endOfMonth(monthStart);
@@ -17,6 +20,10 @@ export default function CalenderCell({ currentMonth }) {
 
   const showModal = () => {
     setModal(true);
+  };
+
+  const closeModel = () => {
+    setModal(false);
   };
   const rows = [];
   let days = [];
@@ -60,7 +67,9 @@ export default function CalenderCell({ currentMonth }) {
   return (
     <div className={classes.body}>
       {rows}
-      {modal && <Modal setModal={setModal} />}
+      <SessionProvider>
+        {modal && <Modal setModal={setModal} />}
+      </SessionProvider>
     </div>
   );
 }

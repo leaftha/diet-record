@@ -5,9 +5,10 @@ import { format } from "date-fns";
 import CalenderCell from "./calenderCell";
 import classes from "./calender.module.css";
 
-export default function Calender() {
+export default function Calender({ record }) {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const date = ["Sun", "Mon", "Thu", "Wed", "Thrs", "Fri", "Sat"];
+
   return (
     <div>
       <div className={classes.header}>
@@ -26,7 +27,7 @@ export default function Calender() {
         })}
       </div>
       <div>
-        <CalenderCell currentMonth={currentMonth} />
+        <CalenderCell currentMonth={currentMonth} checkDate={record} />
       </div>
     </div>
   );
