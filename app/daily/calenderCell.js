@@ -91,5 +91,6 @@ export default function CalenderCell({ currentMonth, checkDate }) {
   );
 }
 
-// 회원가입 같은 이메일 배제
-// session정보 없으면 페이지 못들어오게
+// 운동기록 두달전부터 db자동 삭제
+// 눈바디 페이지 작성
+// 홈 and css 디자인
