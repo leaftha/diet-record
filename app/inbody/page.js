@@ -2,6 +2,7 @@ import { authOptions } from "@/pages/api/auth/[...nextauth].js";
 import { getServerSession } from "next-auth";
 import { connectDB } from "@/util/database";
 import LineChart from "./LineChart";
+import NotAuth from "../notauth";
 
 // db데이터 출력
 // 그래프와 db연결
@@ -10,6 +11,9 @@ import LineChart from "./LineChart";
 
 export default async function InBody() {
   let session = await getServerSession(authOptions);
+  if (session === null) {
+    return NotAuth();
+  }
   const client = await connectDB;
   const db = client.db("menber");
   // let result = await db

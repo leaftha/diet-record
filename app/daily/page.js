@@ -7,6 +7,8 @@ import Calender from "./calender";
 import { connectDB } from "@/util/database";
 import { authOptions } from "@/pages/api/auth/[...nextauth].js";
 import { getServerSession } from "next-auth";
+import NotAuth from "../notauth";
+
 import {
   startOfMonth,
   endOfMonth,
@@ -16,6 +18,10 @@ import {
 } from "date-fns";
 
 export default async function Daily() {
+  let session = await getServerSession(authOptions);
+  if (session === null) {
+    return NotAuth();
+  }
   const currentMonth = new Date();
 
   const monthStart = startOfMonth(currentMonth);
@@ -28,7 +34,6 @@ export default async function Daily() {
 
   console.log(startMonth, endMonth, year);
 
-  let session = await getServerSession(authOptions);
   const client = await connectDB;
   const db = client.db("menber");
   let result = await db
