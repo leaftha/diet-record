@@ -64,11 +64,7 @@ export default async function InBody() {
   return (
     <div>
       <form method="POST" action="/api/post/inbody">
-        {month == result[0].month && year == result[0].year ? (
-          <div>
-            <h1>이번달 입력 완료</h1>
-          </div>
-        ) : (
+        {result.length === 0 ? (
           <div>
             <label>체중</label>
             <input name="weight" type="number" step="0.01" />
@@ -98,6 +94,13 @@ export default async function InBody() {
             />
             <button type="submit">입력</button>
           </div>
+        ) : (
+          month == result[0].month &&
+          year == result[0].year && (
+            <div>
+              <h1>이번달 입력 완료</h1>
+            </div>
+          )
         )}
       </form>
       <div>

@@ -44,12 +44,7 @@ export default function CalenderCell({ currentMonth, checkDate }) {
       formattedMonth = format(day, "M");
       days.push(
         <div
-          className={`${classes.cell} ${
-            cheacklistmonth.includes(formattedMonth) &&
-            cheacklistdate.includes(formattedDate)
-              ? classes.check
-              : ""
-          } ${
+          className={`${classes.cell}  ${
             formattedDate === currentDay && formattedMonth === currMonth
               ? classes.currentDay
               : formattedMonth != currMonth
@@ -65,7 +60,16 @@ export default function CalenderCell({ currentMonth, checkDate }) {
           }
           key={day}
         >
-          <span>{formattedDate}</span>
+          <span
+            className={`${classes.cellspan} ${
+              cheacklistmonth.includes(formattedMonth) &&
+              cheacklistdate.includes(formattedDate)
+                ? classes.check
+                : ""
+            } `}
+          >
+            {formattedDate}
+          </span>
         </div>
       );
       day = addDays(day, 1);
@@ -86,3 +90,6 @@ export default function CalenderCell({ currentMonth, checkDate }) {
     </div>
   );
 }
+
+// 회원가입 같은 이메일 배제
+// session정보 없으면 페이지 못들어오게
