@@ -23,7 +23,6 @@ export default async function Daily() {
     return NotAuth();
   }
   const currentMonth = new Date();
-
   const monthStart = startOfMonth(currentMonth);
   const monthEnd = endOfMonth(monthStart);
   const startDate = startOfWeek(monthStart);
@@ -32,10 +31,13 @@ export default async function Daily() {
   const startMonth = format(startDate, "M");
   const endMonth = format(monthEnd, "M");
 
-  console.log(startMonth, endMonth, year);
-
   const client = await connectDB;
   const db = client.db("menber");
+
+  let delet = await db.collection("daliy").deleteMany({
+    email: session.user.email,
+    month: { $eq: `${format(currentMonth, "M") - 2}` },
+  });
   let result = await db
     .collection("daliy")
     .find({

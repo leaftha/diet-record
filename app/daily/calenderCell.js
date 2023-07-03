@@ -91,6 +91,5 @@ export default function CalenderCell({ currentMonth, checkDate }) {
   );
 }
 
-// 운동기록 두달전부터 db자동 삭제
 // 눈바디 페이지 작성
 // 홈 and css 디자인
