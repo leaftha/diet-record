@@ -1,7 +1,4 @@
-import { useSession } from "next-auth/react";
-
-export default function Modal({ setModal }) {
-  let session = useSession();
+export default function Modal({ setModal, session }) {
   const todaye = new Date();
   const year = todaye.getFullYear();
   const month = todaye.getMonth() + 1;
@@ -20,7 +17,7 @@ export default function Modal({ setModal }) {
           style={{ display: "none" }}
           name="email"
           type="text"
-          defaultValue={session.data.user.email}
+          defaultValue={session.user.email}
         />
         <input
           style={{ display: "none" }}

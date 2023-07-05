@@ -51,5 +51,5 @@ export default async function Daily() {
     return a;
   });
 
-  return <div>{<Calender record={result} />}</div>;
+  return <div>{<Calender session={session} record={result} />}</div>;
 }

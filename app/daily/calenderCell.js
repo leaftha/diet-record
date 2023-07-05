@@ -5,11 +5,10 @@ import { format } from "date-fns";
 import { addDays } from "date-fns";
 import classes from "./calenderCell.module.css";
 import { useState } from "react";
-import { SessionProvider } from "next-auth/react";
 
 import Modal from "./Modal";
 
-export default function CalenderCell({ currentMonth, checkDate }) {
+export default function CalenderCell({ currentMonth, session, checkDate }) {
   const [modal, setModal] = useState(false);
   const monthStart = startOfMonth(currentMonth);
   const monthEnd = endOfMonth(monthStart);
@@ -84,9 +83,7 @@ export default function CalenderCell({ currentMonth, checkDate }) {
   return (
     <div className={classes.body}>
       {rows}
-      <SessionProvider>
-        {modal && <Modal setModal={setModal} />}
-      </SessionProvider>
+      {modal && <Modal session={session} setModal={setModal} />}
     </div>
   );
 }

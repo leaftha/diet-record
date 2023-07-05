@@ -22,7 +22,7 @@ export default async function RootLayout({ children }) {
           <div className="navbar-content">
             <div className="navbar-name">Diet</div>
             <Link href="inbody">인바디</Link>
-            <div>눈 바디</div>
+            <Link href="body">눈 바디</Link>
             <Link href="daily">운동 기록</Link>
           </div>
           <div className="navbar-auth">
