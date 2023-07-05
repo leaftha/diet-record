@@ -22,7 +22,7 @@ export default function Body() {
       body: formData,
     });
 
-    let file2 = imagefile2;
+    file = imagefile2;
     const formData2 = new FormData();
     Object.entries({ ...resimag2.fields, file }).forEach(([key, value]) => {
       formData2.append(key, value);
@@ -31,6 +31,7 @@ export default function Body() {
       method: "POST",
       body: formData2,
     });
+    console.log(result, result2);
   }
   return (
     <div>
