@@ -56,7 +56,7 @@ export default function Imgform({ session, year, month }) {
               setIsImg(true);
               let image = window.URL.createObjectURL(file);
               setImgSrc(image);
-              let filename = encodeURIComponent(file.name);
+              let filename = encodeURIComponent(file.name + year + month);
               setFrontName(filename);
               let res = await fetch("/api/post/image?file=" + filename);
               res = await res.json();
@@ -74,7 +74,7 @@ export default function Imgform({ session, year, month }) {
               setIsImg2(true);
               let image = window.URL.createObjectURL(file);
               setImgSrc2(image);
-              let filename = encodeURIComponent(file.name);
+              let filename = encodeURIComponent(file.name + year + month);
               setSideName(filename);
               let res = await fetch("/api/post/image?file=" + filename);
               res = await res.json();
@@ -95,8 +95,6 @@ export default function Imgform({ session, year, month }) {
                   linkside: `https://diet-record-images.s3.ap-northeast-2.amazonaws.com/${sidename}`,
                 }),
               });
-            } else {
-              alert("이미지를 두개 모두 선택해주십시요");
             }
           }}
         >

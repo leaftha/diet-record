@@ -20,7 +20,9 @@ export default async function RootLayout({ children }) {
       <body className={inter.className}>
         <nav className="navbar">
           <div className="navbar-content">
-            <div className="navbar-name">Diet</div>
+            <Link href="/" className="navbar-name">
+              Diet
+            </Link>
             <Link href="inbody">인바디</Link>
             <Link href="body">눈 바디</Link>
             <Link href="daily">운동 기록</Link>
