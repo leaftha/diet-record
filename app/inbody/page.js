@@ -3,11 +3,7 @@ import { getServerSession } from "next-auth";
 import { connectDB } from "@/util/database";
 import LineChart from "./LineChart";
 import NotAuth from "../notauth";
-
-// db데이터 출력
-// 그래프와 db연결
-// 그래프 상반기 후반기 교체
-// 정보값 입력시 같은 년도 달있으면 입력 X
+import classes from "./page.module.css";
 
 export default async function InBody() {
   let session = await getServerSession(authOptions);
@@ -66,56 +62,75 @@ export default async function InBody() {
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
   return (
-    <div>
-      <form method="POST" action="/api/post/inbody">
-        {result.length === 0 ? (
-          <div>
-            <label>체중</label>
-            <input name="weight" type="number" step="0.01" />
-            <label>체지방</label>
-            <input name="fat" type="number" step="0.01" />
-            <label>근육량</label>
-            <input name="mucle" type="number" step="0.01" />
-            <label>체지방률</label>
-            <input name="fatper" type="number" step="0.01" />
-            <input
-              style={{ display: "none" }}
-              name="email"
-              type="text"
-              defaultValue={session.user.email}
-            />
-            <input
-              style={{ display: "none" }}
-              name="year"
-              type="text"
-              defaultValue={year}
-            />
-            <input
-              style={{ display: "none" }}
-              name="month"
-              type="text"
-              defaultValue={month}
-            />
-            <button type="submit">입력</button>
+    <div className={classes.main}>
+      {result.length === 0 ? (
+        <form className={classes.forms} method="POST" action="/api/post/inbody">
+          <label className={classes.label}>체중</label>
+          <input
+            className={classes.input}
+            name="weight"
+            type="number"
+            step="0.01"
+          />
+          <label className={classes.label}>체지방</label>
+          <input
+            className={classes.input}
+            name="fat"
+            type="number"
+            step="0.01"
+          />
+          <label className={classes.label}>근육량</label>
+          <input
+            className={classes.input}
+            name="mucle"
+            type="number"
+            step="0.01"
+          />
+          <label className={classes.label}>체지방률</label>
+          <input
+            className={classes.input}
+            name="fatper"
+            type="number"
+            step="0.01"
+          />
+          <input
+            style={{ display: "none" }}
+            name="email"
+            type="text"
+            defaultValue={session.user.email}
+          />
+          <input
+            style={{ display: "none" }}
+            name="year"
+            type="text"
+            defaultValue={year}
+          />
+          <input
+            style={{ display: "none" }}
+            name="month"
+            type="text"
+            defaultValue={month}
+          />
+          <button className={classes.btn} type="submit">
+            입력
+          </button>
+        </form>
+      ) : (
+        month == result[0].month &&
+        year == result[0].year && (
+          <div className={classes.message}>
+            <h1>이번달 입력 완료</h1>
           </div>
-        ) : (
-          month == result[0].month &&
-          year == result[0].year && (
-            <div>
-              <h1>이번달 입력 완료</h1>
-            </div>
-          )
-        )}
-      </form>
-      <div>
-        <LineChart
-          label={datelabels.reverse()}
-          weight={weightData.reverse()}
-          fat={fatData.reverse()}
-          muscle={muscleData.reverse()}
-          fatper={fatperData.reverse()}
-        />
-      </div>
+        )
+      )}
+      <LineChart
+        className={classes.chart}
+        label={datelabels.reverse()}
+        weight={weightData.reverse()}
+        fat={fatData.reverse()}
+        muscle={muscleData.reverse()}
+        fatper={fatperData.reverse()}
+      />
     </div>
   );
 }

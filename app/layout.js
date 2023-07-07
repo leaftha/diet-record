@@ -23,20 +23,26 @@ export default async function RootLayout({ children }) {
             <Link href="/" className="navbar-name">
               Diet
             </Link>
-            <Link href="inbody">인바디</Link>
-            <Link href="body">눈 바디</Link>
-            <Link href="daily">운동 기록</Link>
+            <Link href="inbody" className="inbody">
+              인바디
+            </Link>
+            <Link href="body" className="body">
+              눈 바디
+            </Link>
+            <Link href="daily" className="daily">
+              운동 기록
+            </Link>
           </div>
-          <div className="navbar-auth">
-            {session === null ? (
-              <div>
-                <LoginBtn />
-                <Link href="register">회원가입</Link>
-              </div>
-            ) : (
-              <LogoutBtn />
-            )}
-          </div>
+          {session === null ? (
+            <div className="navbar-auth">
+              <LoginBtn />
+              <Link className="register" href="register">
+                회원가입
+              </Link>
+            </div>
+          ) : (
+            <LogoutBtn />
+          )}
         </nav>
         {children}
       </body>

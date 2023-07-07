@@ -1,3 +1,5 @@
+@import "./reset.css";
+
 body {
   margin: 0;
 }
@@ -25,6 +27,9 @@ body {
 }
 .navbar-name {
   font-size: 30px;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .navbar-auth {
@@ -32,6 +37,45 @@ body {
   margin-right: 20px;
   font-size: 20px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 20%;
+}
+
+.inbody {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.body {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.daily {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.register {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+@media (max-width: 800px) {
+  .navbar-name {
+    font-size: 20px;
+  }
+  .navbar-content {
+    font-size: 15px;
+    width: 70%;
+  }
+  .navbar-auth {
+    font-size: 14px;
+    justify-content: space-between;
+    width: 30%;
+  }
 }

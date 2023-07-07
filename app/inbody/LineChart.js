@@ -13,6 +13,8 @@ import {
   Legend,
 } from "chart.js";
 
+import classes from "./LineChart.module.css";
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -75,8 +77,8 @@ export default function LineChart({ label, weight, fat, muscle, fatper }) {
   }, []);
 
   return (
-    <div>
-      <Line options={chartOption} data={chartData} />;
+    <div className={classes.chart}>
+      <Line options={chartOption} data={chartData} />
     </div>
   );
 }
