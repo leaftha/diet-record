@@ -1,5 +1,9 @@
 .body {
   width: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-use-select: none;
+  user-select: none;
 }
 
 .row {
@@ -19,16 +23,18 @@
 }
 
 .currentDay {
-  background-color: red;
+  background-color: #c4fcef;
+  cursor: pointer;
 }
 
 .prevMonth {
-  background-color: gray;
+  background-color: #00c9a7;
 }
 
 .check {
   position: relative;
 }
+
 .check::after {
   content: "";
   display: block;
