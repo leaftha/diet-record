@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import classes from "./imgform.module.css";
 
 export default function Imgform({ session, year, month }) {
   const [resimag, setResImg] = useState({});
@@ -42,47 +43,54 @@ export default function Imgform({ session, year, month }) {
     }
   }
   return (
-    <div>
-      <form onSubmit={submit}>
-        <div>
-          <lable>front</lable>
-          <input
-            type="file"
-            name="front"
-            accept="image/*"
-            onChange={async (e) => {
-              let file = e.target.files[0];
-              setImagefile(file);
-              setIsImg(true);
-              let image = window.URL.createObjectURL(file);
-              setImgSrc(image);
-              let filename = encodeURIComponent(file.name + year + month);
-              setFrontName(filename);
-              let res = await fetch("/api/post/image?file=" + filename);
-              res = await res.json();
-              setResImg(res);
-            }}
-          />
-          <lable>Side</lable>
-          <input
-            type="file"
-            name="side"
-            accept="image/*"
-            onChange={async (e) => {
-              let file = e.target.files[0];
-              setImagefile2(file);
-              setIsImg2(true);
-              let image = window.URL.createObjectURL(file);
-              setImgSrc2(image);
-              let filename = encodeURIComponent(file.name + year + month);
-              setSideName(filename);
-              let res = await fetch("/api/post/image?file=" + filename);
-              res = await res.json();
-              setResImg2(res);
-            }}
-          />
-        </div>
+    <div className={classes.main}>
+      <form className={classes.form} onSubmit={submit}>
+        <label htmlFor="input-front" className={classes.label}>
+          front
+        </label>
+        <input
+          className={classes.inputimg}
+          type="file"
+          id="input-front"
+          name="front"
+          accept="image/*"
+          onChange={async (e) => {
+            let file = e.target.files[0];
+            setImagefile(file);
+            setIsImg(true);
+            let image = window.URL.createObjectURL(file);
+            setImgSrc(image);
+            let filename = encodeURIComponent(file.name + year + month);
+            setFrontName(filename);
+            let res = await fetch("/api/post/image?file=" + filename);
+            res = await res.json();
+            setResImg(res);
+          }}
+        />
+        <label htmlFor="input-side" className={classes.label}>
+          Side
+        </label>
+        <input
+          className={classes.inputimg}
+          id="input-side"
+          type="file"
+          name="side"
+          accept="image/*"
+          onChange={async (e) => {
+            let file = e.target.files[0];
+            setImagefile2(file);
+            setIsImg2(true);
+            let image = window.URL.createObjectURL(file);
+            setImgSrc2(image);
+            let filename = encodeURIComponent(file.name + year + month);
+            setSideName(filename);
+            let res = await fetch("/api/post/image?file=" + filename);
+            res = await res.json();
+            setResImg2(res);
+          }}
+        />
         <button
+          className={classes.btn}
           onClick={() => {
             if (isImg && isImg2) {
               fetch("api/post/imgupload", {
@@ -101,8 +109,16 @@ export default function Imgform({ session, year, month }) {
           입력
         </button>
       </form>
-      <img src={imgSrc}></img>
-      <img src={imgSrc2}></img>
+      <div className={classes.sample}>
+        <div className={classes.samplefornt}>
+          <span>front</span>
+          <img className={classes.sampleimg} src={imgSrc} />
+        </div>
+        <div className={classes.samplefornt}>
+          <span>side</span>
+          <img className={classes.sampleimg} src={imgSrc2} />
+        </div>
+      </div>
     </div>
   );
 }

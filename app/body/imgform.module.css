@@ -1,0 +1,65 @@
+.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 20%;
+  height: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.label {
+  width: 150px;
+  height: 30px;
+  background: #fff;
+  border: 1px solid rgb(77, 77, 77);
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.inputimg {
+  display: none;
+}
+
+.btn {
+  margin: 20px 0;
+  font-size: 25px;
+  font-weight: bold;
+  border: none;
+  background: none;
+}
+
+.sample {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.samplefornt {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.sampleimg {
+  width: 80%;
+  margin: 0 20px;
+}
+
+@media (max-width: 800px) {
+  .form {
+    margin: 20px  ;
+  }
+}
