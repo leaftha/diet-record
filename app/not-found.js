@@ -1,3 +1,3 @@
 export default function NotFound() {
-  return <h4>404 에러임 그건 없는 페이지인데요</h4>;
+  return <h4>없는 페이지입니다.</h4>;
 }

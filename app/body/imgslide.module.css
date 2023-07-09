@@ -20,6 +20,7 @@
 }
 
 .imgslide1 {
+  display: flex;
   flex-direction: column;
   text-align: center;
   transition: 0.5s;
@@ -27,10 +28,10 @@
 }
 
 .imgslide2 {
+  display: flex;
   flex-direction: column;
   text-align: center;
   transition: 0.5s;
-
   margin: 0 20px;
 }
 

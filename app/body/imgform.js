@@ -17,7 +17,7 @@ export default function Imgform({ session, year, month }) {
   const [forntname, setFrontName] = useState("");
   const [sidename, setSideName] = useState("");
 
-  async function submit(e) {
+  async function submit() {
     if (isImg && isImg2) {
       let file = imagefile;
       const formData = new FormData();
@@ -60,11 +60,12 @@ export default function Imgform({ session, year, month }) {
             setIsImg(true);
             let image = window.URL.createObjectURL(file);
             setImgSrc(image);
-            let filename = encodeURIComponent(file.name + year + month);
+            let filename = encodeURIComponent(file.name);
             setFrontName(filename);
             let res = await fetch("/api/post/image?file=" + filename);
             res = await res.json();
             setResImg(res);
+            console.log(filename);
           }}
         />
         <label htmlFor="input-side" className={classes.label}>
@@ -82,11 +83,12 @@ export default function Imgform({ session, year, month }) {
             setIsImg2(true);
             let image = window.URL.createObjectURL(file);
             setImgSrc2(image);
-            let filename = encodeURIComponent(file.name + year + month);
+            let filename = encodeURIComponent(file.name);
             setSideName(filename);
             let res = await fetch("/api/post/image?file=" + filename);
             res = await res.json();
             setResImg2(res);
+            console.log(filename);
           }}
         />
         <button

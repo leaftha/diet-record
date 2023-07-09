@@ -46,8 +46,11 @@ export default async function Body() {
   });
   return (
     <div className={classes.main}>
-      {/* {result != null ? <div>이번달 입력완료</div> : <Imgform year={year} month={month} session={session} />} */}
-      <Imgform year={year} month={month} session={session} />
+      {result != null ? (
+        <div className={classes.message}>이번달 입력완료</div>
+      ) : (
+        <Imgform year={year} month={month} session={session} />
+      )}
       <Imgslide front={fronts} side={sides} />
     </div>
   );
