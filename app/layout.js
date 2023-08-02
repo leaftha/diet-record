@@ -26,9 +26,6 @@ export default async function RootLayout({ children }) {
             <Link href="inbody" className="inbody">
               인바디
             </Link>
-            <Link href="body" className="body">
-              눈 바디
-            </Link>
             <Link href="daily" className="daily">
               운동 기록
             </Link>

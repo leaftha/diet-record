@@ -61,9 +61,11 @@ export default async function InBody() {
   const date = new Date();
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
+  console.log(result);
   return (
     <div className={classes.main}>
-      {result.length === 0 ? (
+      {result.length === 0 ||
+      (result[0] !== month && year == result[0].year) ? (
         <form className={classes.forms} method="POST" action="/api/post/inbody">
           <label className={classes.label}>체중</label>
           <input
