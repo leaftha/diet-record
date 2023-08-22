@@ -38,7 +38,12 @@ export default async function RootLayout({ children }) {
                             </Link>
                         </div>
                     ) : (
-                        <LogoutBtn />
+                        <div>
+                            <Link href="profile" className="profile">
+                                프로필
+                            </Link>
+                            <LogoutBtn />
+                        </div>
                     )}
                 </nav>
                 {children}
