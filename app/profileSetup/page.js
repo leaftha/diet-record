@@ -1,5 +1,6 @@
 import { authOptions } from '@/pages/api/auth/[...nextauth].js';
 import { getServerSession } from 'next-auth';
+import { connectDB } from '@/util/database';
 import NotAuth from '../notauth';
 import Setup from './Setup';
 
@@ -8,6 +9,7 @@ export default async function InBody() {
     if (session === null) {
         return NotAuth();
     }
+
     const currentWeight = session.weight;
     const currentInbody = session.InBody;
 

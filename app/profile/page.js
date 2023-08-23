@@ -12,15 +12,6 @@ export default async function InBody() {
     }
     const client = await connectDB;
     const db = client.db('menber');
-    // let result = await db
-    //   .collection("inbody")
-    //   .find({ email: session.user.email })
-    //   .toArray();
-
-    // result = result.map((a) => {
-    //   a._id = a._id.toString();
-    //   return a;
-    // });
 
     let result = await db
         .collection('inbody')
