@@ -2,7 +2,6 @@ import { authOptions } from '@/pages/api/auth/[...nextauth].js';
 import { getServerSession } from 'next-auth';
 import { connectDB } from '@/util/database';
 import NotAuth from '../notauth';
-import Link from 'next/link';
 // import classes from './page.module.css';
 
 export default async function InBody() {
@@ -12,15 +11,6 @@ export default async function InBody() {
     }
     const client = await connectDB;
     const db = client.db('menber');
-    // let result = await db
-    //   .collection("inbody")
-    //   .find({ email: session.user.email })
-    //   .toArray();
-
-    // result = result.map((a) => {
-    //   a._id = a._id.toString();
-    //   return a;
-    // });
 
     let result = await db
         .collection('inbody')
@@ -34,16 +24,17 @@ export default async function InBody() {
         return a;
     });
 
-    const currentWeight = result[0].weight;
-    const currentInbody = result[0].fatper;
     return (
         <div>
-            <p>{session.user.name}</p>
-            <p>현재 체중 : {currentWeight}</p>
-            <p>현재 체지방률 : {currentInbody}</p>
-            <Link href="profileSetup">목표 체중 설정</Link>
-            <p>목표 체중</p>
-            <p>목표 체지방률</p>
+            <form method="POST" action="/api/post/inbody">
+                <p>현재 목표 체중 </p>
+                <p>현재 목표 체지방 </p>
+
+                <label>목표 체중 변경</label>
+                <input type="number" />
+                <label>목표 체지방 변경</label>
+                <input type="number" />
+            </form>
         </div>
     );
 }
