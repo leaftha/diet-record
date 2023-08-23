@@ -10,8 +10,8 @@ export default async function InBody() {
         return NotAuth();
     }
 
-    const currentWeight = session.weight;
-    const currentInbody = session.InBody;
+    const currentWeight = session.user.weight;
+    const currentInbody = session.user.inbody;
 
     return (
         <div>

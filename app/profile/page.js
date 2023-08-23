@@ -27,14 +27,16 @@ export default async function InBody() {
 
     const currentWeight = result[0].weight;
     const currentInbody = result[0].fatper;
+    const goalWeight = session.user.weight;
+    const goalInbody = session.user.inbody;
     return (
         <div>
             <p>{session.user.name}</p>
             <p>현재 체중 : {currentWeight}</p>
             <p>현재 체지방률 : {currentInbody}</p>
             <Link href="profileSetup">목표 체중 설정</Link>
-            <p>목표 체중</p>
-            <p>목표 체지방률</p>
+            <p>목표 체중 {goalWeight}</p>
+            <p>목표 체지방률 {goalInbody}</p>
         </div>
     );
 }
