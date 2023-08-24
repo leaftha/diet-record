@@ -6,7 +6,7 @@ import Setup from './Setup';
 
 export default async function InBody() {
     let session = await getServerSession(authOptions);
-    if (session === null) {
+    if (session) {
         return NotAuth();
     }
 
