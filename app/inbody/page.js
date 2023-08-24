@@ -62,8 +62,6 @@ export default async function InBody() {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
 
-    console.log(session.user.weight, weightData[0]);
-
     const countWeight = weightData[0] - session.user.weight;
     return (
         <div className={classes.main}>
