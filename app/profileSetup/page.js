@@ -1,12 +1,11 @@
 import { authOptions } from '@/pages/api/auth/[...nextauth].js';
 import { getServerSession } from 'next-auth';
-import { connectDB } from '@/util/database';
 import NotAuth from '../notauth';
 import Setup from './Setup';
 
 export default async function InBody() {
     let session = await getServerSession(authOptions);
-    if (session) {
+    if (!session) {
         return NotAuth();
     }
 

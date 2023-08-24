@@ -62,6 +62,9 @@ export default async function InBody() {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
 
+    console.log(session.user.weight, weightData[0]);
+
+    const countWeight = weightData[0] - session.user.weight;
     return (
         <div className={classes.main}>
             {result.length === 0 || (result[0].month != month && year === result[0].year) ? (
@@ -86,6 +89,7 @@ export default async function InBody() {
                 year == result[0].year && (
                     <div className={classes.message}>
                         <h1>이번달 입력 완료</h1>
+                        <p>목표까지 남은 체중 {countWeight.toFixed(2)}</p>
                     </div>
                 )
             )}
