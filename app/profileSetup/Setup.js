@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import classes from './Setup.module.css';
 
 export default function Setup(session) {
     const [weight, setWeight] = useState(session.session.user.weight ? session.session.user.weight : 0);
@@ -22,7 +23,7 @@ export default function Setup(session) {
                 <input type="number" name="weight" onChange={weightChange} value={weight} min={0} />
                 <label>목표 체지방 변경</label>
                 <input type="number" name="inbody" onChange={inbodyChange} value={inbody} min={0} />
-                <input type="text" name="email" defaultValue={email} />
+                <input className={classes.email} type="text" name="email" defaultValue={email} />
                 <button type="submit">Submit</button>
             </form>
         </div>
