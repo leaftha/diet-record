@@ -1,11 +1,12 @@
 import './globals.css';
-import { Inter } from 'next/font/google';
+import { Noto_Sans_KR } from 'next/font/google';
 import LoginBtn from './loginbtn';
 import Link from 'next/link';
 import { authOptions } from '@/pages/api/auth/[...nextauth].js';
 import { getServerSession } from 'next-auth';
 import LogoutBtn from './logoutbtn';
-const inter = Inter({ subsets: ['latin'] });
+
+const Noto = Noto_Sans_KR({ weight: '400', subsets: ['latin'] });
 
 export const metadata = {
     title: 'diet record',
@@ -17,7 +18,7 @@ export default async function RootLayout({ children }) {
     // console.log(session);
     return (
         <html lang="ko">
-            <body className={inter.className} suppressHydrationWarning={true}>
+            <body suppressHydrationWarning={true}>
                 <nav className="navbar">
                     <div className="navbar-content">
                         <Link href="/" className="navbar-name">

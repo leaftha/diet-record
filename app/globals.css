@@ -1,90 +1,90 @@
-@import "./reset.css";
+@import './reset.css';
 
 body {
-  margin: 0;
-  /* background: rgb(249, 250, 251); */
+    margin: 0;
+    /* background: rgb(249, 250, 251); */
 }
 
 .navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: rgb(255, 255, 255);
-  border-bottom: 1px solid #f2f2f2;
-  height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid #f2f2f2;
+    height: 60px;
 }
 
 .navbar-name {
-  font-size: 25px;
-  font-weight: bold;
-  margin-left: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 20px;
 }
 
 .navbar-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 50%;
-  font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    font-size: 20px;
 }
 .navbar-name {
-  font-size: 30px;
-  color: black;
-  font-weight: bold;
-  text-decoration: none;
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .navbar-auth {
-  display: flex;
-  margin-right: 20px;
-  font-size: 20px;
-  align-items: center;
-  justify-content: space-around;
-  width: 20%;
+    display: flex;
+    margin-right: 20px;
+    font-size: 20px;
+    align-items: center;
+    justify-content: space-around;
+    width: 20%;
 }
 
 .inbody {
-  color: black;
-  font-weight: bold;
-  text-decoration: none;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .body {
-  color: black;
-  font-weight: bold;
-  text-decoration: none;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .daily {
-  color: black;
-  font-weight: bold;
-  text-decoration: none;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .register {
-  color: black;
-  font-weight: bold;
-  text-decoration: none;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
 }
 .profile {
-  color: black;
-  font-weight: bold;
-  font-size: 20px;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
 
-  text-decoration: none;
+    text-decoration: none;
 }
 
 @media (max-width: 800px) {
-  .navbar-name {
-    font-size: 20px;
-  }
-  .navbar-content {
-    font-size: 15px;
-    width: 70%;
-  }
-  .navbar-auth {
-    font-size: 14px;
-    justify-content: space-between;
-    width: 30%;
-  }
+    .navbar-name {
+        font-size: 20px;
+    }
+    .navbar-content {
+        font-size: 15px;
+        width: 70%;
+    }
+    .navbar-auth {
+        font-size: 14px;
+        justify-content: space-between;
+        width: 30%;
+    }
 }
