@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import classes from './Setup.module.css';
+import classes from './SetupForm.module.css';
 
 export default function Setup(session) {
     const [weight, setWeight] = useState(session.session.user.weight ? session.session.user.weight : 0);
