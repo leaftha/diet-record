@@ -72,6 +72,10 @@
     background: #c59696;
 }
 
+.email {
+    display: none;
+}
+
 .link {
     text-decoration: none;
     font-size: 20px;

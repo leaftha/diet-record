@@ -4,6 +4,7 @@ import { connectDB } from '@/util/database';
 import NotAuth from '../notauth';
 import Link from 'next/link';
 import classes from './page.module.css';
+import Widhdrawal from './withdrawal';
 
 // 회원 탈퇴 기능
 
@@ -26,9 +27,15 @@ export default async function InBody() {
         a._id = a._id.toString();
         return a;
     });
-
-    const currentWeight = result[0].weight;
-    const currentInbody = result[0].fatper;
+    let currentWeight;
+    let currentInbody;
+    if (result.length != 0) {
+        currentWeight = result[0].weight;
+        currentInbody = result[0].fatper;
+    } else {
+        currentWeight = '--';
+        currentInbody = '--';
+    }
     const goalWeight = session.user.weight;
     const goalInbody = session.user.inbody;
     return (
@@ -55,9 +62,7 @@ export default async function InBody() {
                         목표 체중 설정
                     </Link>
                 </div>
-                <form className={classes.Btnform}>
-                    <button className={classes.btn}>회원 탈퇴</button>
-                </form>
+                <Widhdrawal session={session} />
             </div>
         </div>
     );
