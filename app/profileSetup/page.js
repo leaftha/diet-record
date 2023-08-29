@@ -22,8 +22,6 @@ export default async function InBody() {
     let currentWeight = result[0].weight;
     let currentInbody = result[0].inbody;
 
-    console.log(currentInbody);
-
     return (
         <div>
             <p>현재 목표 체중 {currentWeight ? currentWeight : '목표 설정 X'}</p>
