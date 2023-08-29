@@ -6,8 +6,6 @@ import Link from 'next/link';
 import classes from './page.module.css';
 import Widhdrawal from './withdrawal';
 
-// 회원 탈퇴 기능
-
 export default async function InBody() {
     let session = await getServerSession(authOptions);
     if (session === null) {
@@ -18,6 +16,13 @@ export default async function InBody() {
 
     let result = await db
         .collection('inbody')
+        .find({ email: session.user.email })
+        .sort({ _id: -1 })
+        .limit(12)
+        .toArray();
+
+    let Goal = await db
+        .collection('user_cred')
         .find({ email: session.user.email })
         .sort({ _id: -1 })
         .limit(12)
@@ -36,8 +41,9 @@ export default async function InBody() {
         currentWeight = '--';
         currentInbody = '--';
     }
-    const goalWeight = session.user.weight;
-    const goalInbody = session.user.inbody;
+    const goalWeight = Goal[0].weight ? Goal[0].weight : '--';
+    const goalInbody = Goal[0].inbody ? Goal[0].inbody : '--';
+
     return (
         <div className={classes.container}>
             <div className={classes.main}>
@@ -47,13 +53,13 @@ export default async function InBody() {
                 </div>
 
                 <div className={classes.item}>
-                    <p>목표 체중 : {goalWeight}</p>
+                    <p>목표 체중 : {goalWeight}kg</p>
                     <p>목표 체지방률 : {goalInbody}%</p>
                 </div>
 
                 <div className={classes.item}>
-                    <p>현재 체중 : {currentWeight}</p>
-                    <p>현재 체지방률 : {currentInbody}</p>
+                    <p>현재 체중 : {currentWeight}kg</p>
+                    <p>현재 체지방률 : {currentInbody}%</p>
                 </div>
             </div>
             <div className={classes.list}>

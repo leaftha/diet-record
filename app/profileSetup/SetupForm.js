@@ -3,9 +3,9 @@
 import { useState } from 'react';
 import classes from './SetupForm.module.css';
 
-export default function Setup(session) {
-    const [weight, setWeight] = useState(session.session.user.weight ? session.session.user.weight : 0);
-    const [inbody, setInbody] = useState(session.session.user.inbody ? session.session.user.inbody : 0);
+export default function Setup({ sessionEmail, currentWeight, currentInbody }) {
+    const [weight, setWeight] = useState(currentWeight ? currentWeight : 0);
+    const [inbody, setInbody] = useState(currentInbody ? currentInbody : 0);
 
     const weightChange = (e) => {
         setWeight(e.target.value);
@@ -13,8 +13,8 @@ export default function Setup(session) {
     const inbodyChange = (e) => {
         setInbody(e.target.value);
     };
-    const email = session.session.user.email;
-    console.log(session.session);
+
+    const email = sessionEmail;
 
     return (
         <div>
