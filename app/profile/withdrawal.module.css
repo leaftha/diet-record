@@ -1,4 +1,4 @@
-.Btnform {
+.main {
     margin: 10px 0;
     background: #96b6c5;
     border-radius: 10px;
@@ -16,10 +16,6 @@
     border: none;
 }
 
-.Btnform:hover {
+.main:hover {
     background: #c59696;
-}
-
-.email {
-    display: none;
 }

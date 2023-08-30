@@ -1,20 +1,25 @@
 'use client';
 
-import { signOut } from 'next-auth/react';
+import Modal from './modal';
 import classes from './withdrawal.module.css';
+import { useState } from 'react';
 
 export default function Widhdrawal({ session }) {
+    const [modal, setModal] = useState(false);
+    console.log(modal);
     return (
-        <form className={classes.Btnform} method="POST" action="/api/auth/withdrawal">
-            <input type="text" name="email" className={classes.email} defaultValue={session.user.email} />
-            <button
-                className={classes.btn}
-                onClick={() => {
-                    signOut();
-                }}
-            >
-                회원 탈퇴
-            </button>
-        </form>
+        <div>
+            <div className={classes.main}>
+                <button
+                    onClick={() => {
+                        setModal(true);
+                    }}
+                    className={classes.btn}
+                >
+                    회원탈퇴
+                </button>
+            </div>
+            {modal && <Modal session={session} setModal={setModal} />}
+        </div>
     );
 }
