@@ -8,15 +8,24 @@ export default function Modal({ session, setModal }) {
 
     return (
         <div className={classes.main} onClick={closeModel}>
-            <form className={classes.Btnform} method="POST" action="/api/auth/withdrawal">
+            <form
+                className={classes.Btnform}
+                method="POST"
+                action="/api/auth/withdrawal"
+                onClick={(e) => e.stopPropagation()}
+            >
+                <h1>정말로 탈퇴 하시겠습니까?</h1>
                 <input type="text" name="email" className={classes.email} defaultValue={session.user.email} />
                 <button
-                    className={classes.btn}
+                    className={`${classes.btn} ${classes.first}`}
                     onClick={() => {
                         signOut();
                     }}
                 >
-                    회원 탈퇴
+                    예
+                </button>
+                <button className={classes.btn} onClick={closeModel}>
+                    아니요
                 </button>
             </form>
         </div>
