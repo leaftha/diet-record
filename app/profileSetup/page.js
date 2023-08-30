@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth';
 import { connectDB } from '@/util/database';
 import NotAuth from '../notauth';
 import SetupForm from './SetupForm';
+import classes from './page.module.css';
 
 export default async function InBody() {
     let session = await getServerSession(authOptions);
@@ -23,9 +24,9 @@ export default async function InBody() {
     let currentInbody = result[0].inbody;
 
     return (
-        <div>
-            <p>현재 목표 체중 {currentWeight ? currentWeight : '목표 설정 X'}</p>
-            <p>현재 목표 체지방 {currentInbody ? currentInbody : '목표 설정 X'}</p>
+        <div className={classes.main}>
+            <p className={classes.item}>현재 목표 체중 {currentWeight ? currentWeight : '목표 설정 X'}kg</p>
+            <p className={classes.item}>현재 목표 체지방 {currentInbody ? currentInbody : '목표 설정 X'}%</p>
             <SetupForm sessionEmail={session.user.email} currentWeight={currentWeight} currentInbody={currentInbody} />
         </div>
     );

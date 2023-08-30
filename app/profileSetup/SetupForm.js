@@ -17,14 +17,20 @@ export default function Setup({ sessionEmail, currentWeight, currentInbody }) {
     const email = sessionEmail;
 
     return (
-        <div>
-            <form method="POST" action="/api/post/profile">
-                <label>목표 체중 변경</label>
-                <input type="number" name="weight" onChange={weightChange} value={weight} min={0} />
-                <label>목표 체지방 변경</label>
-                <input type="number" name="inbody" onChange={inbodyChange} value={inbody} min={0} />
+        <div className={classes.main}>
+            <form className={classes.form} method="POST" action="/api/post/profile">
+                <div className={classes.item}>
+                    <label>목표 체중 변경</label>
+                    <input type="number" name="weight" onChange={weightChange} value={weight} min={0} />
+                </div>
+                <div className={classes.item}>
+                    <label>목표 체지방 변경</label>
+                    <input type="number" name="inbody" onChange={inbodyChange} value={inbody} min={0} />
+                </div>
                 <input className={classes.email} type="text" name="email" defaultValue={email} />
-                <button type="submit">Submit</button>
+                <button className={classes.btn} type="submit">
+                    Submit
+                </button>
             </form>
         </div>
     );

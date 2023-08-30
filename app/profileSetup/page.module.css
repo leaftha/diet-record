@@ -1,0 +1,13 @@
+.main {
+    display: flex;
+    height: calc(100vh - 100px);
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.item {
+    font-size: 32px;
+    margin: 20px 0;
+}
