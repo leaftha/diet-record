@@ -6,8 +6,6 @@ import Link from 'next/link';
 import classes from './page.module.css';
 import Widhdrawal from './withdrawal';
 
-//회원 탈퇴 다시 묻는 모달창 필요
-
 export default async function InBody() {
     let session = await getServerSession(authOptions);
     if (session === null) {
