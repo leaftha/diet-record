@@ -1,8 +1,13 @@
 import classes from './page.module.css';
+import Image from 'next/image';
+import mainImg from '/public/images/main.jpg';
 
 export default function Home() {
     return (
         <div className={classes.content}>
+            <div className={classes.img}>
+                <img src="/images/main.jpg" alt="main img"></img>
+            </div>
             <h1 className={classes.mainItem}>이 사이트는 다이어트를 위한 사이트입니다.</h1>
             <span className={classes.itme}>현재 23년 7월부터 약 1년간 운용할 예정입니다.</span>
             <span className={classes.itme}>
