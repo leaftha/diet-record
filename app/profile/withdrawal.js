@@ -6,7 +6,6 @@ import { useState } from 'react';
 
 export default function Widhdrawal({ session }) {
     const [modal, setModal] = useState(false);
-    console.log(modal);
     return (
         <div>
             <div className={classes.main}>

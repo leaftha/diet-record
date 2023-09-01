@@ -12,15 +12,6 @@ export default async function InBody() {
     }
     const client = await connectDB;
     const db = client.db('menber');
-    // let result = await db
-    //   .collection("inbody")
-    //   .find({ email: session.user.email })
-    //   .toArray();
-
-    // result = result.map((a) => {
-    //   a._id = a._id.toString();
-    //   return a;
-    // });
 
     let result = await db
         .collection('inbody')
@@ -63,9 +54,12 @@ export default async function InBody() {
     const month = date.getMonth() + 1;
 
     const countWeight = weightData[0] - session.user.weight;
+
+    console.log(result[0], month, year);
+
     return (
         <div className={classes.main}>
-            {result.length === 0 || (result[0].month != month && year === result[0].year) ? (
+            {result.length === 0 || result[0].month != month ? (
                 <form className={classes.forms} method="POST" action="/api/post/inbody">
                     <label className={classes.label}>체중</label>
                     <input className={classes.input} name="weight" type="number" step="0.01" />
@@ -83,13 +77,10 @@ export default async function InBody() {
                     </button>
                 </form>
             ) : (
-                month == result[0].month &&
-                year == result[0].year && (
-                    <div className={classes.message}>
-                        <h1>이번달 입력 완료</h1>
-                        <p>목표까지 남은 체중 {countWeight.toFixed(2)}</p>
-                    </div>
-                )
+                <div className={classes.message}>
+                    <h1>이번달 입력 완료</h1>
+                    <p>목표까지 남은 체중 {countWeight.toFixed(2)}</p>
+                </div>
             )}
             <LineChart
                 className={classes.chart}
