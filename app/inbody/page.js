@@ -4,6 +4,7 @@ import { connectDB } from '@/util/database';
 import LineChart from './LineChart';
 import NotAuth from '../notauth';
 import classes from './page.module.css';
+import InputForm from './inputform';
 
 export default async function InBody() {
     let session = await getServerSession(authOptions);
@@ -55,41 +56,31 @@ export default async function InBody() {
 
     const countWeight = weightData[0] - session.user.weight;
 
-    console.log(result[0], month, year);
-
     return (
         <div className={classes.main}>
-            {result.length === 0 || result[0].month != month ? (
-                <form className={classes.forms} method="POST" action="/api/post/inbody">
-                    <label className={classes.label}>체중</label>
-                    <input className={classes.input} name="weight" type="number" step="0.01" />
-                    <label className={classes.label}>체지방</label>
-                    <input className={classes.input} name="fat" type="number" step="0.01" />
-                    <label className={classes.label}>근육량</label>
-                    <input className={classes.input} name="mucle" type="number" step="0.01" />
-                    <label className={classes.label}>체지방률</label>
-                    <input className={classes.input} name="fatper" type="number" step="0.01" />
-                    <input style={{ display: 'none' }} name="email" type="text" defaultValue={session.user.email} />
-                    <input style={{ display: 'none' }} name="year" type="text" defaultValue={year} />
-                    <input style={{ display: 'none' }} name="month" type="text" defaultValue={month} />
-                    <button className={classes.btn} type="submit">
-                        입력
-                    </button>
-                </form>
-            ) : (
-                <div className={classes.message}>
-                    <h1>이번달 입력 완료</h1>
-                    <p>목표까지 남은 체중 {countWeight.toFixed(2)}</p>
-                </div>
-            )}
-            <LineChart
-                className={classes.chart}
-                label={datelabels.reverse()}
-                weight={weightData.reverse()}
-                fat={fatData.reverse()}
-                muscle={muscleData.reverse()}
-                fatper={fatperData.reverse()}
-            />
+            <div className={classes.itemGoal}>
+                <p>목표까지 남은 체중 {countWeight.toFixed(2)}</p>
+            </div>
+
+            <div className={classes.itemInput}>
+                <h1>체중입력</h1>
+                {result.length === 0 || result[0].month != month ? (
+                    <InputForm session={session} month={month} year={year} />
+                ) : (
+                    <div className={classes.message}>
+                        <h1>이번달 입력 완료</h1>
+                    </div>
+                )}
+            </div>
+            <div className={classes.itemChart}>
+                <LineChart
+                    label={datelabels.reverse()}
+                    weight={weightData.reverse()}
+                    fat={fatData.reverse()}
+                    muscle={muscleData.reverse()}
+                    fatper={fatperData.reverse()}
+                />
+            </div>
         </div>
     );
 }
