@@ -1,3 +1,9 @@
+import classes from './not-found.module.css';
+
 export default function NotFound() {
-  return <h4>없는 페이지입니다.</h4>;
+    return (
+        <div className={classes.main}>
+            <h1>없는 페이지입니다.</h1>
+        </div>
+    );
 }
