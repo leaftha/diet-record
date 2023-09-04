@@ -1,39 +1,45 @@
 .content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 0.5fr 1fr 1fr 1fr;
 }
 
 .img img {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .title {
-  font-size: 120px;
-  position: absolute;
-  top: 30%;
-  left: 10%;
-  color: white;
-  font-weight: bold;
+    font-size: 120px;
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    color: white;
+    font-weight: bold;
 }
 
 .subtitle {
-  font-size: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 .subtitle li {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .side {
-  grid-column: 1/3;
-  height: 200px;
-  width: 100%;
-  background-color: rebeccapurple;
+    grid-column: 1/3;
+    height: 100%;
+    width: 100%;
+    background-color: rebeccapurple;
+}
+
+.item {
+    width: 100%;
+    height: 100%;
 }
