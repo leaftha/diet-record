@@ -56,6 +56,11 @@ export default function Home() {
             <div className={classes.imgItem}>
                 <img src="/images/profile.jpg" alt="profile img"></img>
             </div>
+            <div className={classes.footer}>
+                <h1>기타 문의는 관리자를 통해 말해주세요</h1>
+                <h1>ex : 인바디 잘못 입력 등</h1>
+                <p>vltpcks@gmail.com</p>
+            </div>
         </div>
     );
 }
