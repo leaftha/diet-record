@@ -7,7 +7,7 @@ export default function Home() {
                 <h1 className={classes.title}>Diet</h1>
                 <img src="/images/main.jpg" alt="main img"></img>
             </div>
-            <div>
+            <div className={classes.twoGrid}>
                 <ul className={classes.subtitle}>
                     <li>다이어트를 위한 사이트입니다.</li>
                     <li>자신의 체중, 근육량, 체지방등을 입력하여 비교할수 있습니다.</li>
@@ -18,7 +18,7 @@ export default function Home() {
             <div className={classes.side}>
                 <div className={classes.arrow}>{`↓`}</div>
             </div>
-            <div className={classes.item}>
+            <div className={`${classes.item} ${classes.one}`}>
                 <div>
                     <p>
                         인바디 페이지에서는 자신의 체중, 근육량, 체지방을 입력하고
@@ -27,13 +27,13 @@ export default function Home() {
                     <p>목표 체중을 입력했다면 목표체중까지 얼마나 남았는지 알수 있습니다.</p>
                 </div>
             </div>
-            <div className={classes.imgItem}>
+            <div className={`${classes.imgItem} ${classes.imgOne}`}>
                 <img src="/images/inbody.jpg" alt="inbody img"></img>
             </div>
-            <div className={classes.imgItem}>
+            <div className={`${classes.imgItem} ${classes.imgTwo}`}>
                 <img src="/images/daily.jpg" alt="daily img"></img>
             </div>
-            <div className={classes.item}>
+            <div className={`${classes.item} ${classes.two}`}>
                 <div>
                     <p>
                         운동기록 페이지에서는 자신의 운동을 기록하고
@@ -45,7 +45,7 @@ export default function Home() {
                     </p>
                 </div>
             </div>
-            <div className={classes.item}>
+            <div className={`${classes.item} ${classes.three}`}>
                 <div>
                     <p>
                         프로필 페이지에서는 목표 체중을 입력가능하고
@@ -53,7 +53,7 @@ export default function Home() {
                     </p>
                 </div>
             </div>
-            <div className={classes.imgItem}>
+            <div className={`${classes.imgItem} ${classes.imgThree}`}>
                 <img src="/images/profile.jpg" alt="profile img"></img>
             </div>
             <div className={classes.footer}>
