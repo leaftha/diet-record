@@ -54,8 +54,9 @@
   border-radius: 30px;
 }
 
-@media (max-width: 800px) {
+@media all and (max-width: 1024px) {
   .modal {
     width: 70%;
+    height: 60%;
   }
 }
