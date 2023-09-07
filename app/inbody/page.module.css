@@ -1,80 +1,67 @@
 .main {
-    display: grid;
-    height: calc(100vh - 100px);
-    width: 100%;
-    grid-template-columns: 0.5fr 1fr;
-    grid-template-rows: 1fr 1fr;
+  display: grid;
+  height: calc(100vh - 100px);
+  width: 100%;
+  grid-template-columns: 0.5fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 
 .itemGoal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    font-size: 32px;
-    font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 32px;
+  font-weight: bold;
 }
 
 .itemInput {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
 
 .itemInput h1 {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 5px;
-    border-top: 1px solid #f2f2f2;
-    border-bottom: 1px solid #f2f2f2;
-    text-align: center;
-    padding: 10px;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  border-top: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
+  text-align: center;
+  padding: 10px;
 }
 
 .itemChart {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    grid-column: 2/3;
-    grid-row: 1/3;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 2/3;
+  grid-row: 1/3;
+  width: 100%;
+  height: 100%;
 }
 
 .message {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    text-align: center;
-    font-size: 30px;
-    height: 100%;
-    font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  height: 100%;
+  font-weight: bold;
 }
 
-/* @media (max-width: 800px) {
-    .main {
-        flex-direction: column;
-    }
+@media all and (max-width: 768px) {
+  .main {
+    grid-template-columns: repeat(1, 1fr);
+    /* grid-row: ; */
+  }
 
-    .forms {
-        border: none;
-    }
-    .label {
-        font-size: 20px;
-        line-height: 30px;
-    }
-    .btn {
-        font-size: 25px;
-    }
-
-    .input {
-        width: 80%;
-    }
-    .message {
-        font-size: 25px;
-        border: none;
-    }
-} */
+  .itemChart {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
