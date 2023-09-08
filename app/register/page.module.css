@@ -1,43 +1,54 @@
 .main {
-  display: flex;
-  width: 100%;
-  height: calc(100vh - 100px);
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 100px);
+    align-items: center;
+    justify-content: center;
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  height: 50%;
-  border: 1px solid black;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 50%;
+    border: 1px solid black;
+    text-align: center;
 }
 
 .label {
-  font-size: 30px;
-  margin: 30px;
+    font-size: 30px;
+    margin: 30px;
 }
 
 .input {
-  width: 50%;
-  font-size: 20px;
-  margin: 0 auto;
+    width: 50%;
+    font-size: 20px;
+    margin: 0 auto;
 }
 
 .btn {
-  font-size: 25px;
-  font-weight: bold;
-  background: none;
-  border: none;
-  width: 50%;
-  height: 50%;
-  margin: 20px auto;
+    background: #96b6c5;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    transition: all ease 0.2s;
+    margin: 20px;
+    border-radius: 10px;
 }
 
-@media (max-width: 800px) {
-  .form {
-    height: 60%;
-  }
+.btn:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    background: #c59696;
+}
+
+@media all and (max-width: 768px) {
+    .form {
+        height: 60%;
+    }
+    .btn {
+        font-size: 12px;
+    }
 }
