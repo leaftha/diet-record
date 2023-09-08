@@ -55,4 +55,7 @@
 }
 
 @media all and (max-width: 768px) {
+    .Btnform {
+        height: 40%;
+    }
 }
