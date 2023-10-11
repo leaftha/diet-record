@@ -11,7 +11,6 @@ export default async function handler(Get, Post) {
             let inbody = Get.body.inbody * 1;
             await db.collection('user_cred').updateOne({ email: Get.body.email }, { $set: { weight: weight } });
             await db.collection('user_cred').updateOne({ email: Get.body.email }, { $set: { inbody: inbody } });
-            console.log(Get.body);
             Post.status(200).redirect(302, '/profileSetup');
         }
     }
