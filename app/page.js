@@ -1,6 +1,6 @@
 import classes from './page.module.css';
 
-export default function Home() {
+const Home = () => {
     return (
         <div className={classes.content}>
             <div className={classes.img}>
@@ -64,3 +64,5 @@ export default function Home() {
         </div>
     );
 }
+
+export default Home

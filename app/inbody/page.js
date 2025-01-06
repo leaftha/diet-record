@@ -4,7 +4,7 @@ import { connectDB } from '@/util/database';
 import LineChart from './LineChart';
 import NotAuth from '../notauth';
 import classes from './page.module.css';
-import InputForm from './inputform';
+import Modal from './Modal';
 
 export default async function InBody() {
     let session = await getServerSession(authOptions);
@@ -25,34 +25,20 @@ export default async function InBody() {
         a._id = a._id.toString();
         return a;
     });
-    // console.log(result);
-
     let datelabels = result.map((data) => {
         return `${data.year}-${data.month}`;
     });
+    let weightData = [];
+    let fatData = [];
+    let muscleData = [];
+    let fatperData = [];
 
-    // console.log(datelabels);
-
-    let weightData = result.map((data) => {
-        return data.weight;
+    result.forEach((data) => {
+        weightData.push(data.weight);
+        fatData.push(data.fat);
+        muscleData.push(data.muscle); // Fixed typo from 'mucle' to 'muscle'
+        fatperData.push(data.fatper);
     });
-    // console.log(weightData.reverse());
-
-    let fatData = result.map((data) => {
-        return data.fat;
-    });
-
-    let muscleData = result.map((data) => {
-        return data.mucle;
-    });
-
-    let fatperData = result.map((data) => {
-        return data.fatper;
-    });
-
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
 
     const countWeight = weightData[0] - session.user.weight;
 
@@ -62,16 +48,7 @@ export default async function InBody() {
                 <p>목표까지 남은 체중 {countWeight.toFixed(2) ? countWeight.toFixed(2) : `--`}</p>
             </div>
 
-            <div className={classes.itemInput}>
-                <h1>체중입력</h1>
-                {result.length === 0 || result[0].month != month ? (
-                    <InputForm session={session} month={month} year={year} />
-                ) : (
-                    <div className={classes.message}>
-                        <h1>이번달 입력 완료</h1>
-                    </div>
-                )}
-            </div>
+            <Modal session={session}/>           
             <div className={classes.itemChart}>
                 <LineChart
                     label={datelabels.reverse()}

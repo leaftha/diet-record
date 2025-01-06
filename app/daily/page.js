@@ -23,10 +23,10 @@ export default async function Daily() {
     const client = await connectDB;
     const db = client.db('menber');
 
-    let delet = await db.collection('daliy').deleteMany({
-        email: session.user.email,
-        month: { $eq: `${format(currentMonth, 'M') - 2}` },
-    });
+    // let delet = await db.collection('daliy').deleteMany({
+    //     email: session.user.email,
+    //     month: { $eq: `${format(currentMonth, 'M') - 2}` },
+    // });
     let result = await db
         .collection('daliy')
         .find({
@@ -41,5 +41,5 @@ export default async function Daily() {
         return a;
     });
 
-    return <div>{<Calender session={session} record={result} />}</div>;
+    return <><Calender session={session} record={result} /></>;
 }
