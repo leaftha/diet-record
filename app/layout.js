@@ -1,12 +1,10 @@
 import "./globals.css";
 import LoginBtn from "./loginbtn";
 import Link from "next/link";
-import { Noto_Sans_KR } from "next/font/google";
 import { authOptions } from "@/pages/api/auth/[...nextauth].js";
 import { getServerSession } from "next-auth";
 import LogoutBtn from "./logoutbtn";
 
-const Noto = Noto_Sans_KR({ subsets: ["latin"], weight: "400" });
 
 export const metadata = {
   title: "diet record",
@@ -15,10 +13,9 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   let session = await getServerSession(authOptions);
-  // console.log(session);
   return (
     <html lang="ko">
-      <body className={Noto.className} suppressHydrationWarning={true}>
+      <body suppressHydrationWarning={true}>
         <nav className="navbar">
           <div className="navbar-content">
             <Link href="/" className="navbar-name">
