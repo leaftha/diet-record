@@ -36,7 +36,7 @@ export default async function InBody() {
     result.forEach((data) => {
         weightData.push(data.weight);
         fatData.push(data.fat);
-        muscleData.push(data.muscle); // Fixed typo from 'mucle' to 'muscle'
+        muscleData.push(data.muscle);
         fatperData.push(data.fatper);
     });
 
