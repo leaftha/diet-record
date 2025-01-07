@@ -1,6 +1,6 @@
 import classes from './inputform.module.css';
 
-export default async function InputForm({ session,setIsModalOpen }) {
+export default async function InputForm({ session, setIsModalOpen }) {
     const date = new Date();
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
@@ -18,7 +18,7 @@ export default async function InputForm({ session,setIsModalOpen }) {
             <input style={{ display: 'none' }} name="email" type="text" defaultValue={session.user.email} />
             <input style={{ display: 'none' }} name="year" type="text" defaultValue={year} />
             <input style={{ display: 'none' }} name="month" type="text" defaultValue={month} />
-            <button className={classes.btn} type="submit" onClick={()=>{setIsModalOpen(false)}}>
+            <button className={classes.btn} type="submit">
                 입력
             </button>
         </form>
