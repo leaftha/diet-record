@@ -41,12 +41,13 @@ export default async function InBody() {
     });
 
     const countWeight = weightData[0] - session.user.weight;
+    const lastMonthSubmit = [result[0].year, result[0].month];
 
     return (
         <div className={classes.main}>
             <div className={classes.itemGoal}>
                 <p>목표까지 남은 체중 {countWeight.toFixed(2) ? countWeight.toFixed(2) : `--`}</p>
-                <Modal session={session} />
+                <Modal lastMonthSubmit={lastMonthSubmit} session={session} />
             </div>
 
             <div className={classes.itemChart}>
