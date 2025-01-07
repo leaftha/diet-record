@@ -1,29 +1,34 @@
-.itemInput {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .itemInput h1 {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 5px;
-    border-top: 1px solid #f2f2f2;
-    border-bottom: 1px solid #f2f2f2;
-    text-align: center;
-    padding: 10px;
-  }
-
-  .modal {
+.modal {
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     z-index: 100;
     background: rgba(0, 0, 0, 0.4);
-  }
+}
+
+.body {
+    margin-right: 50px;
+    /* justify-items: flex-end; */
+}
+
+.btn {
+    width: 100px;
+    height: 50px;
+    transition: ease 0.2s;
+    color: #ffffff;
+    font-size: 15px;
+    background: none;
+    border: none;
+    background: #96b6c5;
+    border-radius: 10px;
+}
+
+.btn:hover {
+    background: #c59696;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}

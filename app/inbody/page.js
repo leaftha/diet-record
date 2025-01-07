@@ -46,9 +46,7 @@ export default async function InBody() {
         <div className={classes.main}>
             <div className={classes.itemGoal}>
                 <p>목표까지 남은 체중 {countWeight.toFixed(2) ? countWeight.toFixed(2) : `--`}</p>
-                <div className={classes.modal}>
-                    <Modal session={session}/>  
-                </div>         
+                <Modal session={session} />
             </div>
 
             <div className={classes.itemChart}>
