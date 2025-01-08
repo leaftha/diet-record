@@ -13,12 +13,26 @@ export default function Setup({ sessionEmail, currentWeight, currentInbody }) {
   const inbodyChange = (e) => {
     setInbody(e.target.value);
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const weight = form.weight.value.trim();
+    const inbody = form.inbody.value.trim();
+    if (!weight || !inbody) {
+      alert("모든 필드를 입력해주세요.");
+      return;
+    }
 
-  const email = sessionEmail;
-
+    form.submit();
+  };
   return (
     <>
-      <form className={classes.form} method="POST" action="/api/post/profile">
+      <form
+        className={classes.form}
+        method="POST"
+        action="/api/post/profile"
+        onSubmit={(e) => handleSubmit(e)}
+      >
         <div className={classes.item}>
           <label>목표 체중 변경</label>
           <input
@@ -43,7 +57,7 @@ export default function Setup({ sessionEmail, currentWeight, currentInbody }) {
           className={classes.email}
           type="text"
           name="email"
-          defaultValue={email}
+          defaultValue={sessionEmail}
         />
         <button className={classes.btn} type="submit">
           변경
