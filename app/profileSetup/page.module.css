@@ -1,13 +1,30 @@
 .main {
-    display: flex;
-    height: calc(100vh - 100px);
-    flex-direction: column;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 60px);
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.main h1 {
+  font-size: 100px;
+  font-weight: bold;
+  margin: 100px 0;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 80%;
+  height: 60%;
+  border-radius: 20px;
+  background: #e9ecef;
 }
 
 .item {
-    font-size: 32px;
-    margin: 20px 0;
+  font-size: 32px;
+  margin: 50px 0;
 }

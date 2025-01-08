@@ -1,42 +1,51 @@
-.main {
-    display: flex;
-    height: 200px;
-}
-
 .form {
-    display: flex;
-    flex-direction: column;
-    font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  width: 100%;
 }
 
 .item {
-    display: flex;
-    flex-direction: column;
-    margin: 10px 0;
-    font-size: 24px;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 40px 0;
+  width: 20%;
+  font-size: 20px;
+  text-align: start;
 }
+
+.item label {
+  color: #495057;
+}
+
 .item input {
-    margin: 10px 0;
-    font-size: 15px;
+  margin-top: 10px;
+  /* margin-left: 0 auto; */
+  font-size: 24px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
 }
 
 .btn {
-    background: #96b6c5;
-    border-radius: 10px;
-    border: none;
-    color: #ffffff;
-    font-size: 20px;
-    width: 200px;
-    height: 50px;
-    margin: 10px 0;
-    cursor: pointer;
+  width: 200px;
+  height: 50px;
+  transition: all ease 0.2s;
+  color: #ffffff;
+  font-size: 20px;
+  background: none;
+  border: none;
+  background: #96b6c5;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .btn:hover {
-    background: #c59696;
+  background: #c59696;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
-
 .email {
-    display: none;
+  display: none;
 }
