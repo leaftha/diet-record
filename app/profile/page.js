@@ -46,29 +46,32 @@ export default async function InBody() {
 
     return (
         <div className={classes.container}>
-            <div className={classes.main}>
-                <div className={classes.item}>
-                    <p>{session.user.name}</p>
-                    <p>{session.user.email}</p>
-                </div>
+            <h1 className={classes.title}>회원 정보</h1>
+            <div className={classes.body}>
+                <div className={classes.main}>
+                    <div className={classes.item}>
+                        <p>이름 : {session.user.name}</p>
+                        <p>이메일 : {session.user.email}</p>
+                    </div>
 
-                <div className={classes.item}>
-                    <p>목표 체중 : {goalWeight}kg</p>
-                    <p>목표 체지방률 : {goalInbody}%</p>
-                </div>
+                    <div className={classes.item}>
+                        <p>목표 체중 : {goalWeight}kg</p>
+                        <p>목표 체지방률 : {goalInbody}%</p>
+                    </div>
 
-                <div className={classes.item}>
-                    <p>현재 체중 : {currentWeight}kg</p>
-                    <p>현재 체지방률 : {currentInbody}%</p>
+                    <div className={classes.item}>
+                        <p>현재 체중 : {currentWeight}kg</p>
+                        <p>현재 체지방률 : {currentInbody}%</p>
+                    </div>
                 </div>
-            </div>
-            <div className={classes.list}>
-                <div className={classes.change}>
-                    <Link className={classes.link} href="profileSetup">
-                        목표 체중 설정
-                    </Link>
+                <div className={classes.list}>
+                    <div className={classes.change}>
+                        <Link className={classes.link} href="profileSetup">
+                            목표 체중 설정
+                        </Link>
+                    </div>
+                    <Widhdrawal session={session} />
                 </div>
-                <Widhdrawal session={session} />
             </div>
         </div>
     );
