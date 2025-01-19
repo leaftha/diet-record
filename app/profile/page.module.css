@@ -1,89 +1,90 @@
 .container {
-    width: 100%;
-    height: calc(100vh - 60px);
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    justify-content: center;
+  width: 100%;
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  padding-top: 60px;
 }
 
 .title {
-    width: 100%;
-    font-size: 60px;
-    font-weight: bold;
-    text-align: center;
+  width: 100%;
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
 }
 
 .body {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .main {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    margin: 50px 0;
-    font-size: 32px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 50px 0;
+  font-size: 32px;
 }
 
 .item {
-    background: #eee0c9;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: black;
-    margin: 10px 0;
-    width: 100%;
-    border-radius: 30px;
-    height: 200px;
+  background: #eee0c9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: black;
+  margin: 10px 0;
+  width: 100%;
+  border-radius: 30px;
+  height: 200px;
 }
 
 .item p {
-    margin: 10px;
+  margin: 10px;
 }
 
 .list {
-    display: flex;
-    flex-direction: column;
-    margin: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  margin: 60px 40px;
 }
 
 .change {
-    background: #96b6c5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    cursor: pointer;
-    width: 200px;
-    height: 50px;
-    transition: all ease 0.2s;
-    border-radius: 10px;
+  background: #96b6c5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  width: 200px;
+  height: 50px;
+  transition: all ease 0.2s;
+  border-radius: 10px;
 }
 .change:hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    background: #c59696;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  background: #c59696;
 }
 
 .link {
-    text-decoration: none;
-    font-size: 20px;
+  text-decoration: none;
+  font-size: 20px;
 
-    color: #ffffff;
+  color: #ffffff;
 }
 @media all and (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
-    .main {
-        font-size: 15px;
-        margin: 10px;
-    }
-    .list {
-        order: -1;
-        margin: 20px;
-    }
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .main {
+    font-size: 15px;
+    margin: 10px;
+  }
+  .list {
+    order: -1;
+    margin: 20px;
+  }
 }
