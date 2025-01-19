@@ -1,10 +1,9 @@
 import classes from "./inputform.module.css";
 
-export default function InputForm({ session, isSubmit }) {
+export default function InputForm({ session }) {
   const date = new Date();
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
-  console.log(isSubmit);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,11 +14,6 @@ export default function InputForm({ session, isSubmit }) {
     const fatper = form.fatper.value.trim();
     if (!weight || !fat || !muscle || !fatper) {
       alert("모든 필드를 입력해주세요.");
-      return;
-    }
-
-    if (isSubmit) {
-      alert("이번달 입력 완료.");
       return;
     }
 

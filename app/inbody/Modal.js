@@ -1,23 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import InputForm from "./inputform";
 import classes from "./Modal.module.css";
 
-const Modal = ({ session, lastMonthSubmit }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false); // Corrected the typo here
-  const [isSubmit, setIsSubmit] = useState(false);
-
-  useEffect(() => {
-    const currentMonth = new Date().getMonth();
-    const currentYear = new Date().getFullYear();
-    if (
-      `${currentYear}` === lastMonthSubmit[0] &&
-      `${currentMonth + 1}` === lastMonthSubmit[1]
-    ) {
-      setIsSubmit(true);
-    }
-  }, [lastMonthSubmit]);
+const Modal = ({ session }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className={classes.body}>
@@ -30,19 +18,13 @@ const Modal = ({ session, lastMonthSubmit }) => {
         체중 입력
       </button>
       {isModalOpen && (
-        <ModalContent
-          session={session}
-          setIsModalOpen={setIsModalOpen}
-          isSubmit={isSubmit}
-        />
-      )}{" "}
-      {/* Corrected the typo here */}
+        <ModalContent session={session} setIsModalOpen={setIsModalOpen} />
+      )}
     </div>
   );
 };
 
-const ModalContent = ({ session, setIsModalOpen, isSubmit }) => {
-  // Corrected the typo here
+const ModalContent = ({ session, setIsModalOpen }) => {
   return (
     <div
       className={classes.modal}
@@ -50,7 +32,7 @@ const ModalContent = ({ session, setIsModalOpen, isSubmit }) => {
         setIsModalOpen(false);
       }}
     >
-      <InputForm session={session} isSubmit={isSubmit} />
+      <InputForm session={session} />
     </div>
   );
 };

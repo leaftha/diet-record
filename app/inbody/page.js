@@ -27,7 +27,6 @@ export default async function InBody() {
     .sort({ _id: -1 })
     .limit(12)
     .toArray();
-  console.log(userData);
 
   result = result.map((a) => {
     a._id = a._id.toString();
@@ -51,12 +50,12 @@ export default async function InBody() {
   let countWeight = 0;
   let lastMonthSubmit = 0;
   if (result.length > 0) {
-    lastMonthSubmit = [(result[0].year, result[0].month)];
+    lastMonthSubmit = [result[0].year, result[0].month];
     countWeight = weightData[0] - userData[0].weight;
     // console.log(weightData, session.user);
   }
 
-  // console.log(countWeight, lastMonthSubmit);
+  const Today = new Date();
 
   return (
     <div className={classes.main}>
@@ -65,7 +64,12 @@ export default async function InBody() {
           목표까지 남은 체중 :
           {countWeight.toFixed(2) ? countWeight.toFixed(2) : `--`}
         </p>
-        <Modal lastMonthSubmit={lastMonthSubmit} session={session} />
+        {Number(lastMonthSubmit[0]) === Today.getFullYear() &&
+        Number(lastMonthSubmit[1]) === Today.getMonth() + 1 ? (
+          <></>
+        ) : (
+          <Modal lastMonthSubmit={lastMonthSubmit} session={session} />
+        )}
       </div>
 
       <div className={classes.itemChart}>
