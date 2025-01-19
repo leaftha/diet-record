@@ -21,6 +21,14 @@ export default async function InBody() {
     .limit(12)
     .toArray();
 
+  let userData = await db
+    .collection("user_cred")
+    .find({ email: session.user.email })
+    .sort({ _id: -1 })
+    .limit(12)
+    .toArray();
+  console.log(userData);
+
   result = result.map((a) => {
     a._id = a._id.toString();
     return a;
@@ -40,8 +48,15 @@ export default async function InBody() {
     fatperData.push(data.fatper);
   });
 
-  const countWeight = weightData[0] - session.user.weight;
-  const lastMonthSubmit = [result[0].year, result[0].month];
+  let countWeight = 0;
+  let lastMonthSubmit = 0;
+  if (result.length > 0) {
+    lastMonthSubmit = [(result[0].year, result[0].month)];
+    countWeight = weightData[0] - userData[0].weight;
+    // console.log(weightData, session.user);
+  }
+
+  // console.log(countWeight, lastMonthSubmit);
 
   return (
     <div className={classes.main}>
