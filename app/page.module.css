@@ -1,7 +1,7 @@
 .content {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  align-items: center;
   /* justify-content: center; */
   height: calc(300vh - 65px);
   width: 100%;
@@ -40,4 +40,49 @@
 .descContent {
   margin-top: 20px;
   width: 80%;
+}
+
+.stress {
+  font-weight: bold;
+}
+
+.main {
+  width: 80%;
+  height: 100vh;
+}
+
+.cardList {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50%;
+  background: #ced4da;
+  border-radius: 20px;
+}
+
+.cardBody {
+  width: 80%;
+  height: 80%;
+  /* margin: 20px; */
+  /* background-color: red; */
+  line-height: 50px;
+}
+
+.cardBody h1 {
+  font-size: 40px;
+}
+.cardBody p {
+  font-size: 30px;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
 }
