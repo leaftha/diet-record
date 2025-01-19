@@ -1,29 +1,43 @@
 .content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: calc(100vh - 65px);
+  /* align-items: center; */
+  /* justify-content: center; */
+  height: calc(300vh - 65px);
   width: 100%;
 }
 
 .body {
   display: flex;
+  flex-direction: column;
+  position: relative;
   width: 100%;
   align-items: center;
   justify-content: center;
 }
 
 .body img {
-  width: 50%;
-  height: 80%;
+  width: 100%;
+  /* height: 80%; */
+  z-index: -1;
 }
 
 .desc {
   display: flex;
+  position: absolute;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
+  align-items: center;
+  top: 70%;
+  background: #ffffff;
+  width: 100%;
+  height: 30%;
   font-size: 30px;
   line-height: 60px;
-  margin-left: 30px;
+  /* margin-left: 30px; */
+}
+
+.descContent {
+  margin-top: 20px;
+  width: 80%;
 }
