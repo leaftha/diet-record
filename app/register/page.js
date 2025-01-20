@@ -15,7 +15,7 @@ export default function Register() {
                     type="password"
                     minLength={6}
                     maxLength={12}
-                    placeholder="비번"
+                    placeholder="비밀번호"
                 />
                 <button className={claases.btn} type="submit">
                     회원가입
