@@ -12,23 +12,37 @@
 }
 
 .body {
-    margin-right: 50px;
-    /* justify-items: flex-end; */
+    /* right: 5%; */
 }
 
 .btn {
-    width: 100px;
-    height: 50px;
-    transition: ease 0.2s;
+    background-color: #111111;
+    padding: 1.25em;
+    font-size: 0.5625em;
+    text-decoration: none;
     color: #ffffff;
-    font-size: 15px;
-    background: none;
-    border: none;
-    background: #96b6c5;
-    border-radius: 10px;
+    border-radius: 100px;
+    transition: 0.2s;
+    cursor: pointer;
 }
 
 .btn:hover {
-    background: #c59696;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    background-color: #ffffff;
+    color: #111111;
+}
+@media screen and (max-width: 767px) {
+    /** Mobile */
+    .body {
+        position: static;
+    }
+    .btn {
+        padding: 0.25em;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 1023px) {
+}
+
+@media all and (max-width: 1023px) {
+    /** Mobile & Tablet  */
 }

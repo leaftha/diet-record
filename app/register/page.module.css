@@ -32,10 +32,6 @@
     margin: 0 auto;
 }
 
-.input:focus {
-    outline: none;
-}
-
 .btn {
     background-color: #111111;
     padding: 10px;
