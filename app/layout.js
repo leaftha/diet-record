@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { authOptions } from '@/pages/api/auth/[...nextauth].js';
 import { getServerSession } from 'next-auth';
 import LogoutBtn from './logoutbtn';
+import classes from './layout.module.css';
 
 export const metadata = {
     title: 'diet record',
@@ -15,30 +16,30 @@ export default async function RootLayout({ children }) {
     return (
         <html lang="ko">
             <body suppressHydrationWarning={true}>
-                <nav className="navbar">
-                    <div className="navbar-content">
-                        <Link href="/" className="navbar-name">
+                <nav className={classes.navbar}>
+                    <div className={classes.navbar_content}>
+                        <Link href="/" className={classes.navbar_name}>
                             Diet
                         </Link>
-                        <Link href="inbody" className="inbody">
+                        <Link href="inbody" className={classes.inbody}>
                             인바디
                         </Link>
-                        <Link href="daily" className="daily">
+                        <Link href="daily" className={classes.daily}>
                             운동 기록
                         </Link>
                     </div>
-                    {session === null ? (
-                        <div className="navbar-auth">
+                    <div className={classes.navbar_auth}>
+                        {session === null ? (
                             <LoginBtn />
-                        </div>
-                    ) : (
-                        <div className="navbar-logined">
-                            <Link href="profile" className="profile">
-                                프로필
-                            </Link>
-                            <LogoutBtn />
-                        </div>
-                    )}
+                        ) : (
+                            <>
+                                <Link href="profile" className={classes.profile}>
+                                    프로필
+                                </Link>
+                                <LogoutBtn />
+                            </>
+                        )}
+                    </div>
                 </nav>
                 {children}
             </body>

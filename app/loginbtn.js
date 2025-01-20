@@ -1,17 +1,17 @@
-"use client";
-import { signIn } from "next-auth/react";
+'use client';
+import { signIn } from 'next-auth/react';
 
-import classes from "./loginbtn.module.css";
+import classes from './loginbtn.module.css';
 
 export default function LoginBtn() {
-  return (
-    <button
-      className={classes.btn}
-      onClick={() => {
-        signIn();
-      }}
-    >
-      로그인
-    </button>
-  );
+    return (
+        <p
+            className={classes.btn}
+            onClick={() => {
+                signIn();
+            }}
+        >
+            로그인
+        </p>
+    );
 }

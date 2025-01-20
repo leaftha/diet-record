@@ -12,7 +12,7 @@ const Home = () => {
                 {/* <img src="/images/main2.jpg" alt="main img" /> */}
                 <div className={classes.btns}>
                     <div className={classes.des}>
-                        <h1>Diet Web</h1>
+                        <h1>Diet Record</h1>
                         <p>여기서 당신의 도전을 성공시켜 보세요!</p>
                     </div>
                     <Link className={classes.btn} href="register">

@@ -18,7 +18,7 @@
     width: 100%;
     height: 100vh;
     object-fit: cover;
-    object-position: 75% center;
+    object-position: center center;
     z-index: -1;
 }
 
@@ -32,22 +32,22 @@
 }
 
 .des {
-    margin-bottom: 20px;
+    margin-bottom: 1.25em;
 }
 
 .des h1 {
-    font-size: 40px;
+    font-size: 2.5em;
     font-weight: bold;
 }
 
 .des p {
-    font-size: 30px;
+    font-size: 1.875em;
 }
 
 .btn {
     background-color: #111111;
-    padding: 20px;
-    font-size: 25px;
+    padding: 1.25em;
+    font-size: 1.5625em;
     text-decoration: none;
     color: #ffffff;
     border-radius: 100px;
