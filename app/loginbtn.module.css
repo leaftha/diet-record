@@ -1,8 +1,8 @@
 .btn {
-    background: none;
-    cursor: pointer;
-    border: none;
-    color: black;
-    font-weight: bold;
-    font-size: 1.25rem;
+  background: none;
+  cursor: pointer;
+  border: none;
+  color: black;
+  font-weight: bold;
+  font-size: 1.25em;
 }

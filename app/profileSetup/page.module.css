@@ -1,7 +1,6 @@
 .main {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 60px);
   width: 100%;
   align-items: center;
   justify-content: flex-start;
@@ -9,7 +8,7 @@
 }
 
 .main h1 {
-  font-size: 100px;
+  font-size: 6.25em;
   font-weight: bold;
   margin: 100px 0;
 }
@@ -22,10 +21,23 @@
   width: 80%;
   height: 60%;
   border-radius: 20px;
-  background: #e9ecef;
 }
 
 .item {
-  font-size: 32px;
+  font-size: 2em;
   margin: 50px 0;
+}
+
+@media screen and (max-width: 767px) {
+  /** Mobile */
+  .main h1 {
+    font-size: 5em;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1023px) {
+}
+
+@media all and (max-width: 1023px) {
+  /** Mobile & Tablet  */
 }

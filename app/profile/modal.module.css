@@ -1,61 +1,62 @@
 .main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 1000;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-use-select: none;
-    user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-use-select: none;
+  user-select: none;
 }
 
 .Btnform {
-    height: 200px;
-    width: 500px;
-    background: #ffffff;
-    border-radius: 20px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+  width: 60%;
+  background: #ffffff;
+  border-radius: 20px;
+  text-align: center;
 }
 
 .Btnform h1 {
-    font-size: 32px;
-    font-weight: bold;
-    margin: 30px 0;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 30px 0;
+}
+
+.btnlist {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .btn {
-    margin: 20px;
-    background: #96b6c5;
-    border-radius: 10px;
-    width: 200px;
-    height: 50px;
-    color: #ffffff;
-    font-size: 20px;
-    border: none;
-    cursor: pointer;
+  background-color: #111111;
+  padding: 1.45em;
+  font-size: 1em;
+  text-decoration: none;
+  color: #ffffff;
+  border-radius: 100px;
+  border: 1px solid #111111;
+  transition: 0.2s;
+  width: 100px;
+  cursor: pointer;
 }
 
 .btn:hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    background: #c59696;
-}
-
-.first {
-    background: #c59696;
+  background-color: #ffffff;
+  color: #111111;
 }
 
 .email {
-    display: none;
-}
-
-@media all and (max-width: 768px) {
-    .Btnform {
-        height: 40%;
-    }
+  display: none;
 }

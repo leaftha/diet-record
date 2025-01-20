@@ -9,10 +9,10 @@
 }
 
 .header {
-  font-size: 1.875rem;
+  font-size: 1.875em;
   font-weight: bold;
   text-align: center;
-  margin: 6.25rem 0;
+  margin: 6.25em 0;
   width: 100%;
 }
 
@@ -28,5 +28,5 @@
   width: 100%;
   height: 25%;
   text-align: center;
-  font-size: 1.25rem;
+  font-size: 1.25em;
 }
