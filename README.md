@@ -18,6 +18,10 @@
 
 이후 간단한 오류 수정과 코드 리팩토링 진행 중
 
+리마스터 이전 브런치 : Main
+
+리마스터 브런치 : Remaster
+
 ## 🧑 개발 인원
 
 피세찬(동서대학교.컴퓨터공학과)
@@ -44,10 +48,10 @@ Database
 
 ## 🔗 배포 주소
 
-리메이크 이전
+리마스터 이전
 https://diet-record.vercel.app/
 
-리메이크 후
+리마스터 후
 https://diet-record-0hpq-git-remaster-leafthas-projects.vercel.app/
 
 ## 📌 주요 기능
