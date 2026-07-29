@@ -1,86 +1,88 @@
-import { authOptions } from '@/pages/api/auth/[...nextauth].js';
-import { getServerSession } from 'next-auth';
-import { connectDB } from '@/util/database';
-import LineChart from './LineChart';
-import NotAuth from '../notauth';
-import classes from './page.module.css';
-import InputForm from './inputform';
+import { authOptions } from "@/pages/api/auth/[...nextauth].js";
+import { getServerSession } from "next-auth";
+import { connectDB } from "@/util/database";
+import LineChart from "./LineChart";
+import NotAuth from "../notauth";
+import classes from "./page.module.css";
+import InputForm from "./inputform";
 
 export default async function InBody() {
-    let session = await getServerSession(authOptions);
-    if (session === null) {
-        return NotAuth();
-    }
-    const client = await connectDB;
-    const db = client.db('menber');
+  const session = await getServerSession(authOptions);
+  if (!session) return NotAuth();
 
-    let result = await db
-        .collection('inbody')
-        .find({ email: session.user.email })
-        .sort({ _id: -1 })
-        .limit(12)
-        .toArray();
+  const client = await connectDB;
+  const db = client.db("menber");
 
-    result = result.map((a) => {
-        a._id = a._id.toString();
-        return a;
-    });
-    // console.log(result);
+  const rawResults = await db
+    .collection("inbody")
+    .find({ email: session.user.email })
+    .sort({ _id: -1 })
+    .limit(12)
+    .toArray();
 
-    let datelabels = result.map((data) => {
-        return `${data.year}-${data.month}`;
-    });
+  if (rawResults.length === 0) {
+  }
 
-    // console.log(datelabels);
+  const latestWeight = rawResults[0]?.weight ?? 0;
+  const targetWeight = session.user?.weight ?? 0;
+  const countWeight = latestWeight - targetWeight;
 
-    let weightData = result.map((data) => {
-        return data.weight;
-    });
-    // console.log(weightData.reverse());
+  const chronologicalData = [...rawResults].reverse();
 
-    let fatData = result.map((data) => {
-        return data.fat;
-    });
+  const chartData = chronologicalData.reduce(
+    (acc, cur) => {
+      acc.labels.push(`${cur.year}-${cur.month}`);
+      acc.weight.push(cur.weight);
+      acc.fat.push(cur.fat);
+      acc.muscle.push(cur.mucle);
+      acc.fatper.push(cur.fatper);
+      return acc;
+    },
+    { labels: [], weight: [], fat: [], muscle: [], fatper: [] },
+  );
 
-    let muscleData = result.map((data) => {
-        return data.mucle;
-    });
+  const now = new Date();
+  const currentYear = now.getFullYear();
+  const currentMonth = now.getMonth() + 1;
 
-    let fatperData = result.map((data) => {
-        return data.fatper;
-    });
+  const isAlreadyInputThisMonth =
+    rawResults.length > 0 &&
+    rawResults[0].year === currentYear &&
+    rawResults[0].month === currentMonth;
 
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
+  return (
+    <div className={classes.main}>
+      <div className={classes.itemGoal}>
+        <p>
+          목표까지 남은 체중:{" "}
+          {typeof countWeight === "number" ? countWeight.toFixed(2) : "--"} kg
+        </p>
+      </div>
 
-    const countWeight = weightData[0] - session.user.weight;
+      <div className={classes.itemInput}>
+        <h1>체중입력</h1>
+        {!isAlreadyInputThisMonth ? (
+          <InputForm
+            session={session}
+            month={currentMonth}
+            year={currentYear}
+          />
+        ) : (
+          <div className={classes.message}>
+            <h1>이번달 입력 완료</h1>
+          </div>
+        )}
+      </div>
 
-    return (
-        <div className={classes.main}>
-            <div className={classes.itemGoal}>
-                <p>목표까지 남은 체중 {countWeight.toFixed(2) ? countWeight.toFixed(2) : `--`}</p>
-            </div>
-
-            <div className={classes.itemInput}>
-                <h1>체중입력</h1>
-                {result.length === 0 || result[0].month != month ? (
-                    <InputForm session={session} month={month} year={year} />
-                ) : (
-                    <div className={classes.message}>
-                        <h1>이번달 입력 완료</h1>
-                    </div>
-                )}
-            </div>
-            <div className={classes.itemChart}>
-                <LineChart
-                    label={datelabels.reverse()}
-                    weight={weightData.reverse()}
-                    fat={fatData.reverse()}
-                    muscle={muscleData.reverse()}
-                    fatper={fatperData.reverse()}
-                />
-            </div>
-        </div>
-    );
+      <div className={classes.itemChart}>
+        <LineChart
+          label={chartData.labels}
+          weight={chartData.weight}
+          fat={chartData.fat}
+          muscle={chartData.muscle}
+          fatper={chartData.fatper}
+        />
+      </div>
+    </div>
+  );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -22,17 +22,20 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
 );
 
-export default function LineChart({ label, weight, fat, muscle, fatper }) {
-  const [chartData, setChartData] = useState({
-    datasets: [],
-  });
-  const [chartOption, setChartOption] = useState({});
+const CHART_OPTIONS = {
+  responsive: true,
+  plugins: {
+    legend: { position: "top" },
+    title: { display: true, text: "인바디 기록" },
+  },
+};
 
-  useEffect(() => {
-    setChartData({
+export default function LineChart({ label, weight, fat, muscle, fatper }) {
+  const chartData = useMemo(() => {
+    return {
       labels: label,
       datasets: [
         {
@@ -60,25 +63,12 @@ export default function LineChart({ label, weight, fat, muscle, fatper }) {
           backgroundColor: "rgba(75, 192, 192, 0.5)",
         },
       ],
-    });
-
-    setChartOption({
-      responsive: true,
-      plugins: {
-        legend: {
-          position: "top",
-        },
-        title: {
-          display: true,
-          text: "인바디 기록",
-        },
-      },
-    });
-  }, []);
+    };
+  }, [label, weight, fat, muscle, fatper]);
 
   return (
     <div className={classes.chart}>
-      <Line options={chartOption} data={chartData} />
+      <Line options={CHART_OPTIONS} data={chartData} />
     </div>
   );
 }
